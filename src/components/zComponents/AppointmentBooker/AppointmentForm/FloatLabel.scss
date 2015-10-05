@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 40px;
+}
+    
+.wrapper > label {
+  position: absolute;
+  top: -13px;
+  left: 0;
+  font-size: 11px;
+  color: blue;
+  transition: all 0.2s linear;
+  opacity: 0;
+  font-weight: bold;
+}
+
+.wrapper > label.on {
+  opacity: 1;
+  color: #243b6b;
+}

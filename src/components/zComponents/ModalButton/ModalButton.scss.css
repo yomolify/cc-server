@@ -1,0 +1,97 @@
+/*body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 200;
+  margin: 0;
+  color: #333;
+}
+
+.branding {
+  border-bottom: 1px solid hsl(200, 0%, 90%);
+}
+
+.branding h1,
+.branding h2 {
+  font-weight: 200;
+}
+
+.padbox {
+  padding: 40px;
+}
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 150ms ease-out;
+}
+
+.ReactModal__Content {
+  -webkit-transform: scale(0.5) rotateX(-30deg);
+}
+
+.ReactModal__Content--after-open {
+  -webkit-transform: scale(1) rotateX(0deg);
+  transition: all 150ms ease-in;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Content--before-close {
+  -webkit-transform: scale(0.5) rotateX(30deg);
+  transition: all 150ms ease-in;
+}*/
+
+.home {
+  dd {
+    margin-bottom: 15px;
+  }
+}
+.masthead {
+  background: #FFFFFF;
+  padding: 40px 20px;
+  color: white;
+  text-align: center;
+  .logo {
+    $size: 200px;
+    height: $size;
+    width: $size;
+    vertical-align: right;
+    p {
+      line-height: $size;
+      margin: 0px;
+    }
+    img {
+      width: 75%;
+      margin: auto;
+    }
+  }
+  h1 {
+    color: $cyan;
+    font-size: 4em;
+  }
+  h2 {
+    color: #ddd;
+    font-size: 2em;
+    margin: 20px;
+  }
+  a {
+    color: #ddd;
+  }
+  p {
+    margin: 10px;
+  }
+  .humility {
+    color: $humility;
+    a {
+      color: $humility;
+    }
+  }
+  .github {
+    font-size: 1.5em;
+  }
+}

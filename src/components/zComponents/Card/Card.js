@@ -1,35 +1,35 @@
-import React, {Component} from 'react';
+  import React, {Component} from 'react';
 import Radium from 'radium';
 
-
+@Radium
 export default class PracticeList extends Component {
   render () {
-    var practiceCardNodes = data.practice.map(function (practice)) {
+    var practiceCardNodes = practices.practice.map(function (practice) {
+      return (
+        <PracticeCard practice={practice}/>
+      )
+    });
     return (
-      <PracticeCard  
-      <
+      <div>{practiceCardNodes}</div>
     );
   }
-
 }
 @Radium
 class PracticeCard extends Component {
-  getInitialState() {
-    return {data: []}
-  },
+
   render() {
     const cardStyles = {
       card: {
         background: '#FFFFFF',
         borderRadius: '10px',
         float: 'left',
-        height: '300px',
+        padding: '10px',
         marginTop: '6em',
         marginLeft: '2em',
         marginRight: '2em',
         marginBottom: '2em',
         position: 'relative',
-        width: '500px',
+        width: '520px',
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
         ':hover': {
           boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
@@ -40,28 +40,31 @@ class PracticeCard extends Component {
       <div style={{height: '500px', length:'500px', position:'relative'}}>
         <div key='one' style={cardStyles.card}>
           <PracticeCardHeader practiceName={this.props.practice.Name} practiceAddress={this.props.practice.Address} />
-          <PractitionerCardList data={data}/>
-          </div>
+          <PractitionerCardList data={this.props.practice.Practitioners}/>
         </div>
       </div>
     );
-  } 
+  }
 }
+
+
 @Radium
 class PractitionerCardList extends Component {
     render() {
-      var practitionerCardNodes = this.props.data.map(function (card) {
+      var practitionerCardNodes = this.props.data.map(function (practitioner) {
         return (
-          <CardHeader name={card.author}>
-
-          </CardHeader>
+          <PractitionerCard practitioner={practitioner}>
+          </PractitionerCard>
         );
       });
-      return (
-        <div className="commentList">
-          {commentNodes}
-        </div>
-      );
+    return (
+      <div className="practitionerCards">
+        {practitionerCardNodes}
+      </div>
+    );
+  }
+}
+
 @Radium
 class PractitionerCard extends Component {
   render() {
@@ -77,43 +80,71 @@ class PractitionerCard extends Component {
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
         ':hover': {
           boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-          },
         },
-        avatar: {
-          borderRadius: '10px',
-          float: 'left',
-          height: '40px',
-          width: '40px',
-          float: 'center',
-          position: 'relative',
-        },
-        name: {
-          fontStyle: 'Roboto',
-          name: {
-            te
-          }
-        }
+      },
     }
     return (
-      <div style={{this.childCardStyle.card}}>
-        </div>
+      <div style={childCardStyle.card}>
+        <PractitionerCardHeader firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
       </div>
-
     );
   }
 }
-// <div style={{this.childCardStyle.avatar}}>
-//         <img src={this.props.practitioner.image} alt="Practitioner Image" width="35px", height="35px">
 
 @Radium
-class CardHeader extends Component {
+class PracticeCardHeader extends Component {
   render() {
+    const styles = {
+      borderRadius: '10px',
+      float: 'left',
+      fontStyle: 'Roboto',
+      padding: '1rem',
+      background:'FFF',
+      name : {
+        fontSize:'1.625rem',
+        fontWeight: '200',
+      },
+      address: {
+        fontSize: '.85rem',
+        fontWeight: '100',
+      },
+    }
     return (
-
+      <div>
+        <h3 style={styles.name}>{this.props.practiceName}</h3>
+        <small style={styles.address}>{this.props.practiceAddress}</small>
+      </div>
     );
   }
 }
 
+@Radium
+class PractitionerCardHeader extends Component {
+  render() {
+    const styles = {
+      borderRadius: '10px',
+      float: 'left',
+      fontStyle: 'Roboto',
+      padding: '1rem',
+      background:'FFF',
+      name : {
+        fontSize: '1.625rem',
+        fontWeight: '200',
+      },
+      specialization: {
+        fontSize: '.85rem',
+        fontWeight: '100',
+      },
+    }
+    const name = this.props.firstName + ' ' + this.props.lastName;
+    return (
+      <div>
+        <h3 style={styles.name}>{name}</h3>
+        <small style={styles.specialization}>{this.props.specialization}</small>
+      </div>
+    );
+  }
+}
 const practices = {
   'practice': [
       {

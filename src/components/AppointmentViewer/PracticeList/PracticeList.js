@@ -1,20 +1,19 @@
-import React, {Component, PropTypes} from 'react';
-import Practice from './Practice/Practice';
+import React, {Component} from 'react';
+import Radium from 'radium';
+import PracticeCard from './PracticeCard/PracticeCard';
 
-export default class SearchResults extends Component {
- render() {
-   const practiceList = [];
-
-   practices.practice.forEach(function(practice) {
-    practiceList.push(<Practice practice={practice}/>);
-  });
-   practiceList.reverse();
-   return (
-   <ul>
-    {practiceList}
-   </ul>
-  );
- }
+@Radium
+export default class PracticeList extends Component {
+  render () {
+    var practiceCardNodes = practices.practice.map(function (practice) {
+      return (
+        <PracticeCard practice={practice}/>
+      )
+    });
+    return (
+      <div>{practiceCardNodes}</div>
+    );
+  }
 }
 
 const practices = {

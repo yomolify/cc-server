@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppointmentViewer from '../../components/AppointmentViewer/AppointmentViewer';
-// import Card from '../../components/zComponents/Card/Card';
+import Card from '../../components/zComponents/Card/Card';
 // import CardHeader from '../../components/zComponents/Card/CardHeader';
 import Radium from 'radium';
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-console.log('got to the import statement');
-import SearchResults from './SearchResults/SearchResults';
+import Radium from 'radium';
+import PracticeList from './PracticeList/PracticeList';
 // import Card from '../zComponents/Card/Card';
 // import AppointmentDateTimePicker from '../SearchBar/AppointmentDateTimePicker';
 // Somewhere we have to deal with the data inflows.
@@ -9,6 +9,7 @@ import SearchResults from './SearchResults/SearchResults';
 // TODO: Data handling
 // TODO: Form submission in dialog (should probably happen at the component level :)
 
+@Radium
 export default class AppointmentViewer extends Component {
 	render() {
 		// var practiceList = [];
@@ -17,7 +18,7 @@ export default class AppointmentViewer extends Component {
 		// });
 		return (
 			<div>
-				<SearchResults />
+				<PracticeList />
 			</div>
 		);
 	}

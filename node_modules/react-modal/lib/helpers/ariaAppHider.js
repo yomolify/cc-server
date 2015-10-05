@@ -1,4 +1,4 @@
-var _element = document.body;
+var _element = typeof document !== 'undefined' ? document.body : null;
 
 function setElement(element) {
   if (typeof element === 'string') {

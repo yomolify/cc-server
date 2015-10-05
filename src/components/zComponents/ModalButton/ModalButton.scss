@@ -1,0 +1,98 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 200;
+  margin: 0;
+  color: #333;
+}
+
+.branding {
+  border-bottom: 1px solid hsl(200, 0%, 90%);
+}
+
+.branding h1,
+.branding h2 {
+  font-weight: 200;
+}
+
+.padbox {
+  padding: 40px;
+}
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 150ms ease-out;
+}
+
+.ReactModal__Content {
+  -webkit-transform: scale(0.5) rotateX(-30deg);
+}
+
+.ReactModal__Content--after-open {
+  -webkit-transform: scale(1) rotateX(0deg);
+  transition: all 150ms ease-in;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Content--before-close {
+  -webkit-transform: scale(0.5) rotateX(30deg);
+  transition: all 150ms ease-in;
+}
+/*
+
+//colors
+$color_mine_shaft_approx: #333;
+$mercury: hsl(200, 0%, 90%);
+
+//fonts
+$font_0: Helvetica Neue;
+$font_1: sans-serif;
+
+body {
+  font-family: $font_0, $font_1;
+  font-weight: 200;
+  margin: 0;
+  color: $color_mine_shaft_approx;
+}
+.branding {
+  border-bottom: 1px solid $mercury;
+  h1 {
+    font-weight: 200;
+  }
+  h2 {
+    font-weight: 200;
+  }
+}
+.padbox {
+  padding: 40px;
+}
+.ReactModal__Overlay {
+  //Instead of the line below you could use @include perspective($p)
+  perspective: 600;
+  opacity: 0;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: opacity 150ms ease-out;
+}
+.ReactModal__Content {
+}
+.ReactModal__Content--after-open {
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all 150ms ease-in;
+}
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.ReactModal__Content--before-close {
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all 150ms ease-in;
+}*/

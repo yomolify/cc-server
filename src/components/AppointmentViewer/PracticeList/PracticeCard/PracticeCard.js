@@ -5,8 +5,8 @@ import PractitionerCardList from './PractitionerCardList/PractitionerCardList';
 
 @Radium
 export default class PracticeCard extends Component {
-
   render() {
+    const {date, time} = this.props;
     const cardStyles = {
       card: {
         background: '#FFFFFF',
@@ -27,10 +27,10 @@ export default class PracticeCard extends Component {
         },
     };
     return (
-      <div style={{height: '500px', length:'500px', position:'relative'}}>
+      <div style={{height: '600px', length:'500px', position:'relative'}}>
         <div key='one' style={cardStyles.card}>
-          <PracticeCardHeader practiceName={this.props.practice.Name} practiceAddress={this.props.practice.Address} />
-          <PractitionerCardList data={this.props.practice.Practitioners}/>
+          <PracticeCardHeader practiceName={this.props.practice.Name} practiceAddress={this.props.practice.Address} date={date} time={time} />
+          <PractitionerCardList data={this.props.practice.Practitioners} date={date} time={time}/>
         </div>
       </div>
     );

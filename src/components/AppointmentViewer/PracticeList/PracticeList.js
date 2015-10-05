@@ -5,9 +5,10 @@ import PracticeCard from './PracticeCard/PracticeCard';
 @Radium
 export default class PracticeList extends Component {
   render () {
+    const {date, time} = this.props;
     var practiceCardNodes = practices.practice.map(function (practice) {
       return (
-        <PracticeCard practice={practice}/>
+        <PracticeCard practice={practice} date={date} time={time}/>
       )
     });
     return (

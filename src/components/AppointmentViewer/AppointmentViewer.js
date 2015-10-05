@@ -12,13 +12,15 @@ import PracticeList from './PracticeList/PracticeList';
 @Radium
 export default class AppointmentViewer extends Component {
 	render() {
+		const {date, time} = this.props;
 		// var practiceList = [];
 		// this.props.practices.practice.forEach(function(practice) {
 		// 	practiceList.push(<PracticeCard practice={practice}/>);
 		// });
+		console.log('AppointmentViewer', date)
 		return (
 			<div>
-				<PracticeList />
+				<PracticeList date={date} time={time}/>
 			</div>
 		);
 	}

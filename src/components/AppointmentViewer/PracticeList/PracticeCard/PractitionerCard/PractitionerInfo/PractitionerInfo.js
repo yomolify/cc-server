@@ -12,12 +12,12 @@ class PractitionerInfo extends Component {
       padding: '1rem',
       background:'FFF',
       name : {
-        fontSize: '1.625rem',
+        fontSize: '1.825rem',
         fontWeight: '200',
       },
       specialization: {
-        fontSize: '.85rem',
-        fontWeight: '100',
+        fontSize: '1.5rem',
+        fontWeight: '150',
       },
     }
     const name = this.props.firstName + ' ' + this.props.lastName;

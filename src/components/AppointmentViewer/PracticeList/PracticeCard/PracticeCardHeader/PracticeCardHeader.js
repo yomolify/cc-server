@@ -5,6 +5,7 @@ import Radium from 'radium';
 export default
 class PracticeCardHeader extends Component {
   render() {
+    const {date, time} = this.props;
     const styles = {
       borderRadius: '10px',
       float: 'left',
@@ -12,11 +13,15 @@ class PracticeCardHeader extends Component {
       padding: '1rem',
       background:'FFF',
       name : {
-        fontSize:'1.625rem',
+        fontSize:'2.5rem',
+        fontWeight: '300',
+      },
+      appointment : {
+        fontSize:'1.5rem',
         fontWeight: '200',
       },
       address: {
-        fontSize: '.85rem',
+        fontSize: '2rem',
         fontWeight: '100',
       },
     }

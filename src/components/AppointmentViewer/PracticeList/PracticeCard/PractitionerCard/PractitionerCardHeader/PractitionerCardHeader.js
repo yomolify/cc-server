@@ -15,8 +15,8 @@ class PractitionerCardHeader extends Component {
         fontWeight: '200',
       },
       specialization: {
-        fontSize: '.85rem',
-        fontWeight: '100',
+        fontSize: '1.3rem',
+        fontWeight: '150',
       },
     }
     const name = this.props.firstName + ' ' + this.props.lastName;

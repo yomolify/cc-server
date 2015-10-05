@@ -17,22 +17,22 @@ const customStyles = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    transitionDuration: '.3s',
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    transitionDuration: '.5s',
+    backgroundColor   : 'rgba(255, 255, 255, 0.30)'
   },
   content : {
     position                   : 'absolute',
     top                        : '80px',
-    left                       : '40px',
-    right                      : '40px',
+    left                       : '100px',
+    right                      : '100px',
     bottom                     : '300px',
     border                     : '2px solid #ccc',
-    background                 : '#fff',
+    background                 : '#EAFDFF',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '10px',
     outline                    : 'none',
-    transitionDuration: '.3s',
+    transitionDuration: '.5s',
     padding                    : '20px'
   }
 };
@@ -52,19 +52,36 @@ export default class ModalButton extends Component {
   }
   render() {
     const {modalIsOpen} = this.state;
-    const {time, practitioner} = this.props;
+    const {date, time, practitioner} = this.props;
+    console.log('date', date);
+    var correctedTime;
+    // console.log((Number(time.slice(0, 2))))
+    if ((Number(time.slice(0, 2) > 12))) {
+      correctedTime = (Number(time.slice(0, 2))) - 12;
+      console.log(correctedTime);
+      correctedTime = correctedTime.toString() + ':00';
+      console.log(correctedTime);
+      if ((Number(time.slice(0, 2) > 10))) {
+        correctedTime = '0' + correctedTime;
+      }
+    }
+    else {
+      correctedTime = time;
+    }
     console.log('modalIsOpen', modalIsOpen);
     const style = require('./ModalButton.scss');
     return (
       <div>
       <br/>
-        <button style={baseStyles} onClick={::this.openModal}>Book @ {time}</button>
+        <button style={baseStyles} onClick={::this.openModal}>Book @ {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={::this.closeModal}
           style={customStyles}>
-          <h2>Book Appointment with Dr {practitioner} @ {time}</h2>
-          <AppointmentBooker practitioner={practitioner} time={time}/>
+          <h3>Book Appointment with Dr {practitioner} for {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
+          <div style={{width: '100%', height: '100X'}}>
+          <AppointmentBooker style={{fontFamily: "Helvetica Neue"}} practitioner={practitioner} time={time} date={date}/>
+          </div>
         </Modal>
       </div>
     );

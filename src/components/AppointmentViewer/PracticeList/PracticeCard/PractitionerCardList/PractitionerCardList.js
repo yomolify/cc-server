@@ -5,9 +5,10 @@ import PractitionerCard from '../PractitionerCard/PractitionerCard';
 @Radium
 export default class PractitionerCardList extends Component {
   render() {
+    const {date, time} = this.props;
     var practitionerCardNodes = this.props.data.map(function (practitioner) {
       return (
-        <PractitionerCard practitioner={practitioner}>
+        <PractitionerCard practitioner={practitioner} date={date} time={time}>
         </PractitionerCard>
       );
     });

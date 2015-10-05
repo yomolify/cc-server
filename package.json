@@ -33,7 +33,7 @@
     "start-dev": "node ./node_modules/better-npm-run start-dev",
     "start-dev-api": "node ./node_modules/better-npm-run start-dev-api",
     "watch-client": "node ./node_modules/better-npm-run watch-client",
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\" \"npm run start-dev-api\"",
+    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "test": "karma start"
   },
   "betterScripts": {
@@ -156,6 +156,7 @@
     "react-modal": "^0.5.0",
     "react-modal-inline": "^1.0.0",
     "react-pure-render": "^1.0.2",
+    "react-select": "^0.6.12",
     "react-sticky": "^2.5.2",
     "react-stickydiv": "^3.4.15",
     "react-transform-hmr": "^1.0.0",

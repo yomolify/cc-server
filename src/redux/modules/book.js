@@ -107,7 +107,7 @@ export function logout() {
   };
 }
 
-export function book(doctorName, patiepntName, startTime) {
+export function book(doctorName, patientName, startTime) {
   console.log('appointment booked');
   return {
     types: [BOOK, BOOK_SUCCESS, BOOK_FAIL],

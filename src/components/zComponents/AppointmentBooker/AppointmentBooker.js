@@ -20,7 +20,7 @@ import moment from 'moment';
 
 @connect(
   () => ({}),
-  dispatch => bindActionCreators({bookActions}, dispatch)
+  dispatch => bindActionCreators(bookActions, dispatch)
 )
 
 export default class AppointmentBooker extends Component {
@@ -30,11 +30,17 @@ export default class AppointmentBooker extends Component {
   }
 
   handleSubmit(data) {
-    let date = moment(data.time, "H:MM a");
-    let calTime = moment(date).calendar();
-    window.alert('Appointment Booked with' + calTime);
-    // console.log(data)
-    // this.props.book(this.props.practitioner, data.patientName, date);
+    var dateTime = this.props.date + ' ' + this.props.time;
+    var sendDateTime = moment(dateTime);
+    // console.log(sendDateTime.toISOString())
+    // let date = moment(data.time, "H:MM a");
+    // let calTime = moment(date).calendar();
+    // window.alert('Appointment Booked with' + calTime);
+    console.log('this.props.practitioner', this.props.practitioner)
+    console.log('data.patientName', data.patientName)
+    console.log('sendDateTime', sendDateTime);
+
+    this.props.book(this.props.practitioner, data.patientName, sendDateTime.toISOString());
   }
 
   render() {

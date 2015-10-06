@@ -18,14 +18,15 @@ const customStyles = {
     right             : 0,
     bottom            : 0,
     transitionDuration: '.5s',
-    backgroundColor   : 'rgba(255, 255, 255, 0.30)'
+    backgroundColor   : 'rgba(255, 255, 255, 0.90)'
   },
   content : {
+    fontFamily: "Helvetica Neue",
     position                   : 'absolute',
     top                        : '80px',
-    left                       : '100px',
-    right                      : '100px',
-    bottom                     : '300px',
+    left                       : '400px',
+    right                      : '400px',
+    bottom                     : '200px',
     border                     : '2px solid #ccc',
     background                 : '#EAFDFF',
     overflow                   : 'auto',
@@ -78,7 +79,7 @@ export default class ModalButton extends Component {
           isOpen={modalIsOpen}
           onRequestClose={::this.closeModal}
           style={customStyles}>
-          <h3>Book Appointment with Dr {practitioner} for {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
+          <h3 style={{fontFamily: 'Helvetica Neue'}}>Book Appointment with Dr {practitioner} for {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
           <div style={{width: '100%', height: '100X'}}>
           <AppointmentBooker style={{fontFamily: "Helvetica Neue"}} practitioner={practitioner} time={time} date={date}/>
           </div>

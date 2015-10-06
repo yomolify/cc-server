@@ -24,6 +24,9 @@ import moment from 'moment';
 )
 
 export default class AppointmentBooker extends Component {
+  state = {
+    show: false
+  }
   static propTypes = {
     initialize: PropTypes.func.isRequired,
     book: PropTypes.func.isRequired
@@ -39,14 +42,17 @@ export default class AppointmentBooker extends Component {
     console.log('this.props.practitioner', this.props.practitioner)
     console.log('data.patientName', data.patientName)
     console.log('sendDateTime', sendDateTime);
+    this.setState({show: true});
 
     this.props.book(this.props.practitioner, data.patientName, sendDateTime.toISOString());
   }
 
   render() {
+    const {show} = this.state;
     return (
         <div style={{width: '100%', height: '100X'}}>
         <AppointmentForm onSubmit={::this.handleSubmit}/>
+        {show && "Appointment has been booked!"}
       </div>
     );
   }

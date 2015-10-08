@@ -17,7 +17,6 @@ import Modal from 'react-modal';
 const Select = require('react-select');
 
 var dates = [
-    { value: '2015-10-05', label: 'Monday, 5th October' },
     { value: '2015-10-06', label: 'Tuesday, 6th October' },
     { value: '2015-10-07', label: 'Wednesday, 7th October' },
     { value: '2015-10-08', label: 'Thursday, 8th October' },
@@ -28,6 +27,7 @@ var dates = [
     { value: '2015-10-13', label: 'Tuesday, 13th October' },
     { value: '2015-10-14', label: 'Wednesday, 14th October' },
     { value: '2015-10-15', label: 'Thursday, 15th October' },
+    { value: '2015-10-16', label: 'Thursday, 16th October' }
 ];
 
 var times = [
@@ -65,8 +65,8 @@ const customStyles = {
 
 export default class SearchBar extends Component {
   state = {
-    pickedDate: '2015-10-05',
-    pickedTime: '13:00'
+    pickedDate: '2015-10-06',
+    pickedTime: '11:00'
   }
   dateChange(val) {
     this.setState({pickedDate: val});
@@ -120,12 +120,15 @@ export default class SearchBar extends Component {
     const listStyle = {
       li: {
         float: 'left',
-        margin: '1.35em',
+        margin: '1em',
         display: 'inline-block',
-        width: '43%'
+        width: '30%'
       },
       ul: {
-          margin: '1em',
+          width: '43.4%',
+          position: 'absolute',
+          left: '10px',
+          margin: '1em 1em -2em 0em',
           padding: '0.2em',
           overflow: 'hidden'
       }
@@ -135,7 +138,7 @@ export default class SearchBar extends Component {
       <div>
         {
         <div style={styles}>
-          <ul>
+          <ul style={listStyle.ul}>
             <li style={listStyle.li}><Select
                 name="form-field-name"
                 value={pickedDate}

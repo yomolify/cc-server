@@ -36,7 +36,7 @@ export default class AppointmentViewer extends Component {
 				<div style={{width: '20%', margin: '0'}}>
 					<PracticeList date={date} time={time}/>
 				</div>
-				<div style={{width: '60%', float: 'right', position: 'absolute', left:' 600px', top: '170px'}}>
+				<div style={{width: '68.4%', float: 'right', position: 'absolute', left:' 600px', top: '90px'}}>
 					<SimpleMapPage/>
 				</div>
 			</div>

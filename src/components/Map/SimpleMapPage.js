@@ -6,27 +6,56 @@ import {List} from 'immutable';
 import GoogleMap from 'google-map-react';
 import Marker from 'google-map-react';
 import SearchBox from 'google-map-react';
+import MyGreatPlaceWithHover from './my_great_place_with_hover.js';
 
 @Radium
 export default class SimpleMapPage extends Component {
 
   static defaultProps = {
-    center:  {lat: 59.938043, lng: 30.337157},
-    zoom: 12
+    center:  {lat: 49.263914799999995, lng: -123.2149846},
+    zoom: 13
   }
 
 
   shouldComponentUpdate = shouldPureComponentUpdate;
 
   render() {
+    const K_SIZE = 40;
+
+    const greatPlaceStyle = {
+      // initially any map object has left top corner at lat lng coordinates
+      // it's on you to set object origin to 0,0 coordinates
+      position: 'absolute',
+      width: K_SIZE,
+      height: K_SIZE,
+      left: -K_SIZE / 2,
+      top: -K_SIZE / 2,
+
+      border: '2px solid #f44336',
+      backgroundColor: 'white',
+      textAlign: 'center',
+      color: '#3f51b5',
+      fontSize: 5,
+      padding: 2,
+      cursor: 'pointer'
+    };
+
+    const greatPlaceStyleHover = {
+      ...greatPlaceStyle,
+      border: '5px solid #3f51b5',
+      color: '#f44336'
+    };
+    const style = this.props.$hover ? greatPlaceStyleHover : greatPlaceStyle;
 
       return (
-        <div style={{width:'100%', height:'945px'}}>
+        <div style={{width:'100%', height:'1000px'}}>
           <GoogleMap
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
             >
-            <div lat={59.955413} lng={30.337844}>a</div>
+            <MyGreatPlaceWithHover lat={49.266082} lng={-123.249972} text={'^'} /* Kreyser Avrora */ />
+            <MyGreatPlaceWithHover lat={49.273667} lng={-123.122521} text={'A'} /* Kreyser Avrora */ />
+            <MyGreatPlaceWithHover lat={49.268360} lng={-123.166454} text={'K'} /* Kreyser Avrora */ />
           </GoogleMap>
       </div>
         );

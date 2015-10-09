@@ -65,8 +65,8 @@ const customStyles = {
 
 export default class SearchBar extends Component {
   state = {
-    pickedDate: '2015-10-06',
-    pickedTime: '11:00'
+    pickedDate: '2015-10-08',
+    pickedTime: '15:00'
   }
   dateChange(val) {
     this.setState({pickedDate: val});
@@ -125,12 +125,11 @@ export default class SearchBar extends Component {
         width: '30%'
       },
       ul: {
-          width: '43.4%',
+          width: '43.6%',
           position: 'absolute',
           left: '10px',
           margin: '1em 1em -2em 0em',
-          padding: '0.2em',
-          overflow: 'hidden'
+          padding: '0.2em'
       }
     }
     // console.log('SearchBar', pickedDate)

@@ -24,7 +24,7 @@
   ],
   "main": "bin/server.js",
   "scripts": {
-    "start": "concurrent --kill-others \"npm run start-prod\" \"npm run start-prod-api\"",
+    "start": "concurrent --kill-others \"npm run start-prod\"",
     "start-prod": "node ./node_modules/better-npm-run start-prod",
     "start-prod-api": "node ./node_modules/better-npm-run start-prod-api",
     "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
@@ -145,6 +145,7 @@
     "moment": "^2.10.6",
     "node-sass": "^3.2.0",
     "radium": "^0.14.1",
+    "raf": "^3.1.0",
     "react-a11y": "0.2.6",
     "react-avatar": "^0.4.0",
     "react-component-gallery": "^1.2.1",

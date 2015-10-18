@@ -116,7 +116,7 @@ export default class SearchBar extends Component {
     // console.log('modalIsOpen', modalIsOpen);
     const styles = require('./SearchBar.scss');
     // const datepickerStyle = require('./DatePickerStyle.css');
-    const dropdownStyle = require('./DropdownStyle.css')
+    // const dropdownStyle = require('./DropdownStyle.css')
     const listStyle = {
       li: {
         float: 'left',

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import PracticeList from './PracticeList/PracticeList';
 import SimpleMapPage from '../Map/SimpleMapPage';
+import GeolocationService from '../Map/GeolocationService';
+
 // import Card from '../zComponents/Card/Card';
 // import AppointmentDateTimePicker from '../SearchBar/AppointmentDateTimePicker';
 // Somewhere we have to deal with the data inflows.
@@ -37,7 +39,7 @@ export default class AppointmentViewer extends Component {
 					<PracticeList date={date} time={time}/>
 				</div>
 				<div style={{width: '70.56%', float: 'right', position: 'absolute', left:' 560px', top: '367px'}}>
-					<SimpleMapPage/>
+					<GeolocationService/>
 				</div>
 			</div>
 		);

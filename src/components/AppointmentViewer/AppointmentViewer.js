@@ -15,7 +15,7 @@ import GeolocationService from '../Map/GeolocationService';
 @Radium
 export default class AppointmentViewer extends Component {
 	render() {
-		const {date, time} = this.props;
+		const {date, time, practitioner} = this.props;
 		// var practiceList = [];
 		// this.props.practices.practice.forEach(function(practice) {
 		// 	practiceList.push(<PracticeCard practice={practice}/>);
@@ -35,8 +35,8 @@ export default class AppointmentViewer extends Component {
 		console.log('AppointmentViewer', date)
 		return (
 			<div>
-				<div style={{width: '20%', margin: '0'}}>
-					<PracticeList date={date} time={time}/>
+				<div style={{width: '20%', margin: '0', height: '1000px'}}>
+					<PracticeList date={date} time={time} practitioner={practitioner}/>
 				</div>
 				<div style={{width: '70.56%', float: 'right', position: 'absolute', left:' 560px', top: '367px'}}>
 					<GeolocationService/>

@@ -45,8 +45,8 @@ export default class SimpleMapPage extends Component {
     console.log(infoShow);
     return (
       <Gmaps
-        width={'800px'}
-        height={'600px'}
+        width={'1339px'}
+        height={'1000px'}
         lat={this.props.center.lat}
         lng={this.props.center.lng}
         zoom={this.props.zoom}
@@ -54,7 +54,7 @@ export default class SimpleMapPage extends Component {
         params={{v: '3.exp'}}
         onMapCreated={this.onMapCreated}>
         <Marker
-          lat={this.props.center.lat}
+          lat={this.props.center.lat} 
           lng={this.props.center.lng}
           draggable={true}
           onDragEnd={this.onDragEnd}
@@ -62,12 +62,12 @@ export default class SimpleMapPage extends Component {
         <InfoWindow
           lat={this.props.center.lat}
           lng={this.props.center.lng}
-          content={'Hello, React :)'}
+          content={'You'}
           onCloseClick={::this.onCloseClick} />
         <Circle
           lat={this.props.center.lat}
           lng={this.props.center.lng}
-          radius={500}
+          radius={50}
           onClick={this.onClick} />
       </Gmaps>
     );

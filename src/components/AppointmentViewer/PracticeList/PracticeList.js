@@ -5,17 +5,26 @@ from 'react';
 import Radium from 'radium';
 import PracticeCard from './PracticeCard/PracticeCard';
 
-@
-Radium
+@Radium
 export default class PracticeList extends Component {
     render() {
         const {
-            date, time
+            date, time, practitioner
         } = this.props;
+        console.log('practitioner', practitioner)
         var practiceCardNodes = practices.practice.map(function(practice) {
-            return (
-                <PracticeCard practice={practice} date={date} time={time}/>
-            )
+            if (practice.Name === practitioner) {
+                return (
+                    <PracticeCard practice={practice} date={date} time={time}/>
+                )
+            }
+            else if (practitioner === "Select Practice") {
+                console.log("haasldkjaslkdjalskdj")
+               return (
+                    <PracticeCard practice={practice} date={date} time={time}/>
+                )
+            }
+            
         });
         return (
             <div>{practiceCardNodes}</div>

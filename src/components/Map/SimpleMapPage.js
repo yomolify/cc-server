@@ -35,6 +35,12 @@ export default class SimpleMapPage extends Component {
     this.setState({infoShow: !this.state.infoShow});
     console.log('infoShow', this.state)
   }
+  onMapMouseOver(e) {
+    this.setState({infoShow: true});
+  }
+  onMapMouseOut(e) {
+    this.setState({infoShow: false});
+  }
 
   onClick(e) {
     console.log('onClick', e);
@@ -52,7 +58,8 @@ export default class SimpleMapPage extends Component {
         zoom={this.props.zoom}
         loadingMessage={'Be happy'}
         params={{v: '3.exp'}}
-        onMapCreated={this.onMapCreated}>
+        onMapCreated={this.onMapCreated}
+        >
         <Marker
           lat={this.props.center.lat} 
           lng={this.props.center.lng}
@@ -64,6 +71,20 @@ export default class SimpleMapPage extends Component {
           lng={this.props.center.lng}
           content={'You'}
           onCloseClick={::this.onCloseClick} />
+
+        
+        <InfoWindow
+          lat={49.273667}
+          lng={-123.122521}
+          content={'Atlantis Dental Centre'}
+          onCloseClick={::this.onCloseClick} />
+        
+        <InfoWindow
+          lat={49.268360}
+          lng={-123.166454}
+          content={'Kitisilano Dental Group'}
+          onCloseClick={::this.onCloseClick} />
+
         <Circle
           lat={this.props.center.lat}
           lng={this.props.center.lng}

@@ -17,6 +17,11 @@ const geolocation = (
   }
 );
 
+const onscroll = function() {
+  console.log('scrolling');
+}
+
+
 export default class GeolocationService extends Component {
   state = {
     center: {
@@ -35,11 +40,12 @@ export default class GeolocationService extends Component {
       });
   }
 
+ 
   //shouldComponentUpdate = shouldPureComponentUpdate;
 
   render () {
     var {center} = this.state;
-    var zoom = 14;
+    var zoom = 13;
   	return (
   		<div>
   			<SimpleMapPage center={center} zoom={zoom} />

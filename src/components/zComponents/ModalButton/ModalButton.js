@@ -54,14 +54,14 @@ export default class ModalButton extends Component {
   render() {
     const {modalIsOpen} = this.state;
     const {date, time, practitioner} = this.props;
-    console.log('date', date);
+    // console.log('date', date);
     var correctedTime;
     // console.log((Number(time.slice(0, 2))))
     if ((Number(time.slice(0, 2) > 12))) {
       correctedTime = (Number(time.slice(0, 2))) - 12;
-      console.log(correctedTime);
+      // console.log(correctedTime);
       correctedTime = correctedTime.toString() + ':00';
-      console.log(correctedTime);
+      // console.log(correctedTime);
       if ((Number(time.slice(0, 2) > 10))) {
         correctedTime = '0' + correctedTime;
       }
@@ -69,7 +69,7 @@ export default class ModalButton extends Component {
     else {
       correctedTime = time;
     }
-    console.log('modalIsOpen', modalIsOpen);
+    // console.log('modalIsOpen', modalIsOpen);
     const style = require('./ModalButton.scss');
     return (
       <div>

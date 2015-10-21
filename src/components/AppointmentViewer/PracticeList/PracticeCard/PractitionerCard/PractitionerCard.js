@@ -19,9 +19,9 @@ export default class PractitionerCard extends Component {
     if ((Number(timePlusOne.slice(0, 1))) > 1) {
       timePlusOne = '0' + timePlusOne
     }
-    console.log("timeMinusOne", timeMinusOne)
-    console.log("time", time)
-    console.log("timePlusOne", timePlusOne)
+    // console.log("timeMinusOne", timeMinusOne)
+    // console.log("time", time)
+    // console.log("timePlusOne", timePlusOne)
 
     // console.log(showTime);
     // console.log(moment([showTime]).format("h A"));

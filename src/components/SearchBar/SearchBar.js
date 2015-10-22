@@ -101,18 +101,9 @@ export default class SearchBar extends Component {
     // const preventNotUsedErr = ddStyle.toString();
     // console.log(preventNotUsedErr.charAt(1));
     const listStyle = {
-      li: {
-        float: 'left',
-        margin: '0.3em',
-        display: 'inline-block',
-        width: '27%'
-      },
-      ul: {
-        width: '32.7%',
-        position: 'absolute',
-        left: '10px',
-        margin: '1.8em 1em -2em 0.9em',
-        padding: '0.2em'
+      datetime: {
+        display: 'flex',
+        flexFlow: 'row'
       }
     };
 
@@ -131,34 +122,30 @@ export default class SearchBar extends Component {
         {
         <div style={styles}>
           <div className="kronos">
-            <ul style={listStyle.ul}>
-              <li style={listStyle.li}>
-                <Kronos
-                    date={this.state.datetime}
-                    onChange={::this.onChange}
-                    min={minDate}
-                    max={maxDate}
-                    format="dddd, MMM Do"
-                    {...props}
-                  />
-              </li>
-              <li style={listStyle.li}>
-                <Kronos
-                    time={this.state.datetime}
-                    onChange={::this.onChange}
-                    min={minDate}
-                    max={maxDate}
-                    {...props}
-                  />
-              </li>
-              <li style={listStyle.li}><Select
+            <div style={listStyle.datetime}>
+              <Kronos
+                  date={this.state.datetime}
+                  onChange={::this.onChange}
+                  min={minDate}
+                  max={maxDate}
+                  format="dddd, MMM Do"
+                  {...props}
+                />
+              <Kronos
+                  time={this.state.datetime}
+                  onChange={::this.onChange}
+                  min={minDate}
+                  max={maxDate}
+                  {...props}
+                />
+              <Select
                 name="form-field-name"
                 value={pickedPractitioner}
                 options={practitioners}
                 onChange={::this.practitionerChange}
                 ref="practitioner"
-            /></li>
-            </ul>
+            />
+            </div>
           </div>
           <div>
             <br/>

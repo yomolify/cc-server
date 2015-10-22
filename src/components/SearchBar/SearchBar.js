@@ -97,6 +97,7 @@ export default class SearchBar extends Component {
       pickedDate, pickedTime, pickedPractitioner
     } = this.state;
     const styles = require('./SearchBar.scss');
+    const ddStyle = require('./DropdownStyle.css');
     const listStyle = {
       li: {
         float: 'left',

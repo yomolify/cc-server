@@ -4,7 +4,6 @@ import React, {
 from 'react';
 import Radium from 'radium';
 import PracticeList from './PracticeList/PracticeList';
-import GeolocationService from '../Map/GeolocationService';
 
 @Radium
 export default class AppointmentViewer extends Component {
@@ -25,14 +24,7 @@ export default class AppointmentViewer extends Component {
     } = this.props;
 
     return (
-      <div>
-        <div style={{width: '20%', margin: '0', height: '1000px'}}>
           <PracticeList date={date} time={time} practitioner={practitioner}/>
-        </div>
-        <div style={{width: '70.56%', float: 'right', position: 'absolute', left: '560px', top: '367px'}}>
-          <GeolocationService/>
-        </div>
-      </div>
     );
   }
 }

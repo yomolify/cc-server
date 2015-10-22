@@ -17,10 +17,9 @@ export default class Header extends Component {
     const headerStyle = {
       div: {
         width: '100%',
-        margin: '0px 0px -15px',
+        margin: '0px 0px 0px',
         backgroundColor: '#CADFAA',
         height: '350px'
-          // margin: '1.1em',
       },
       mainText: {
         fontSize: '7em',

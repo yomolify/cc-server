@@ -1,6 +1,10 @@
 {
   "javascript": {
+<<<<<<< HEAD
     "main": "http://localhost:3001/dist/main-a9bba2dba4219f0bfea0.js"
+=======
+    "main": "http://localhost:3001/dist/main-80a9ce6e8957a267f9f5.js"
+>>>>>>> 3459d0328450c19ce4887fe868778cfeaa5640ca
   },
   "styles": {},
   "images": {},

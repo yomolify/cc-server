@@ -4,6 +4,7 @@ import React, {
 from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Header from '../../components/Header/Header';
+import GeolocationService from '../../components/Map/GeolocationService';
 import Radium from 'radium';
 
 @Radium
@@ -13,10 +14,17 @@ export default class Home extends Component {
     return (
       <div className={styles.home}>
         <div style={{width: '100%', height: '100%', backgroundColor: '#B2EBF2'}}>
-          <Header />
-          <SearchBar />
+            <Header />
         </div>
-      </div>
+        <div style={{width: '100%', height: '100%' }}>
+          <div style={{width: '40%', position: 'relative', float: 'left'}}>
+            <SearchBar />
+          </div>
+          <div style={{width: '60%', position: 'relative', float: 'left'}}>
+            <GeolocationService/>
+          </div>
+          </div>
+        </div>
     );
   }
 }

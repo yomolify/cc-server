@@ -15,6 +15,7 @@ const geolocation = (
   }
 );
 
+console.log('gitTest');
 @Radium
 export default class GeolocationService extends Component {
   state = {

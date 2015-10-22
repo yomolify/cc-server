@@ -3,12 +3,12 @@ import React, {
 }
 from 'react/addons';
 import Radium from 'radium';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import GoogleMap from 'google-map-react';
 import SimpleMapPage from './SimpleMapPage';
 const und = 'undefined';
 
 const geolocation = (
-  und !== typeof window && navigator && navigator.geolocation || {
+  'undefined' !== typeof window && navigator && navigator.geolocation || {
     getCurrentPosition: (success, failure) => {
       failure("Your browser doesn't support geolocation.");
     },
@@ -35,8 +35,6 @@ export default class GeolocationService extends Component {
       });
     });
   }
-
-  shouldComponentUpdate = shouldPureComponentUpdate;
 
   render() {
     const {

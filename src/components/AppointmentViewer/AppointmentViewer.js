@@ -29,7 +29,7 @@ export default class AppointmentViewer extends Component {
         <div style={{width: '20%', margin: '0', height: '1000px'}}>
           <PracticeList date={date} time={time} practitioner={practitioner}/>
         </div>
-        <div style={{width: '70.56%', float: 'right', position: 'absolute', left: '560px', top: '367px', pointerEvents: 'none'}}>
+        <div style={{width: '70.56%', float: 'right', position: 'absolute', left: '560px', top: '367px'}}>
           <GeolocationService/>
         </div>
       </div>

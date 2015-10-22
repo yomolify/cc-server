@@ -3,9 +3,8 @@ import React, {
 }
 from 'react/addons';
 import Radium from 'radium';
-import GoogleMap from 'google-map-react';
 import SimpleMapPage from './SimpleMapPage';
-const und = 'undefined';
+// const und = 'undefined';
 
 const geolocation = (
   'undefined' !== typeof window && navigator && navigator.geolocation || {

@@ -69,7 +69,7 @@ export default class SimpleMapPage extends Component {
     console.log(infoShow);
     return (
       <Gmaps
-        width={'1339px'}
+        width={'100%'}
         height={'1000px'}
         lat={this.props.center.lat}
         lng={this.props.center.lng}

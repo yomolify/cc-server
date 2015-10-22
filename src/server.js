@@ -11,9 +11,7 @@ import ApiClient from './helpers/ApiClient';
 import universalRouter from './helpers/universalRouter';
 import Html from './helpers/Html';
 import PrettyError from 'pretty-error';
-import '../node_modules/elemental/less/elemental.less';
 import '../node_modules/react-kronos/dist/styles';
-
 
 const pretty = new PrettyError();
 const app = new Express();

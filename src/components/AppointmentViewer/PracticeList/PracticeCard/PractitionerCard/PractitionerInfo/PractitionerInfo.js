@@ -1,17 +1,25 @@
-import React, {Component} from 'react';
+import React, {
+  Component, PropTypes
+}
+from 'react';
 import Radium from 'radium';
 
 @Radium
 export default
 class PractitionerInfo extends Component {
+  static propTypes = {
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    specialization: PropTypes.string.isRequired
+  }
   render() {
     const styles = {
       borderRadius: '10px',
       float: 'left',
       fontStyle: 'Roboto',
       padding: '1rem',
-      background:'FFF',
-      name : {
+      background: 'FFF',
+      name: {
         fontSize: '1.825rem',
         fontWeight: '200',
       },
@@ -19,7 +27,7 @@ class PractitionerInfo extends Component {
         fontSize: '1.5rem',
         fontWeight: '150',
       },
-    }
+    };
     const name = this.props.firstName + ' ' + this.props.lastName;
     return (
       <div>

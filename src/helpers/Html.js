@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import serialize from 'serialize-javascript';
 import DocumentMeta from 'react-document-meta';
 const cdn = '//cdnjs.cloudflare.com/ajax/libs/';
-//import '../../node_modules/elemental/less/elemental.less';
 /**
  * Wrapper component containing HTML metadata and boilerplate tags.
  * Used in server-side code only to wrap the string output of the

@@ -1,30 +1,36 @@
-import React, {Component} from 'react';
+import React, {
+  Component, PropTypes
+}
+from 'react';
 import Radium from 'radium';
 import PractitionerInfo from './PractitionerInfo/PractitionerInfo';
 import ModalButton from '../../../../zComponents/ModalButton/ModalButton';
-import moment from 'moment';
 
 @Radium
 export default class PractitionerCard extends Component {
+  static propTypes = {
+    date: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    practitioner: PropTypes.shape({
+      FirstName: PropTypes.string.isRequired,
+      LastName: PropTypes.string.isRequired,
+      Specialization: PropTypes.string.isRequired
+    })
+  }
   render() {
-    const {date, time} = this.props;
-    var showTime = moment(time, "HH:MM");
-    var timeMinusOne = (Number(time.slice(0, 2))) - 1;
-    timeMinusOne = timeMinusOne.toString() + ":00";
-    var timePlusOne = (Number(time.slice(0, 2))) + 1;
-    timePlusOne = timePlusOne.toString() + ":00";
+    const {
+      date, time
+    } = this.props;
+    let timeMinusOne = (Number(time.slice(0, 2))) - 1;
+    timeMinusOne = timeMinusOne.toString() + ':00';
+    let timePlusOne = (Number(time.slice(0, 2))) + 1;
+    timePlusOne = timePlusOne.toString() + ':00';
     if ((Number(timeMinusOne.slice(0, 1))) > 1) {
-      timeMinusOne = '0' + timeMinusOne
+      timeMinusOne = '0' + timeMinusOne;
     }
     if ((Number(timePlusOne.slice(0, 1))) > 1) {
-      timePlusOne = '0' + timePlusOne
+      timePlusOne = '0' + timePlusOne;
     }
-    // console.log("timeMinusOne", timeMinusOne)
-    // console.log("time", time)
-    // console.log("timePlusOne", timePlusOne)
-
-    // console.log(showTime);
-    // console.log(moment([showTime]).format("h A"));
     const childCardStyle = {
       card: {
         display: 'inline-block',
@@ -42,7 +48,7 @@ export default class PractitionerCard extends Component {
           boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
         },
       },
-    }
+    };
     const modalListStyle = {
       li: {
         float: 'left',
@@ -50,13 +56,13 @@ export default class PractitionerCard extends Component {
         margin: '1.1em',
       },
       ul: {
-          // list-style-type: 'none',
-          margin: '-1em',
-          padding: '0.1em',
-          overflow: 'hidden'
+        // list-style-type: 'none',
+        margin: '-1em',
+        padding: '0.1em',
+        overflow: 'hidden'
       }
-    }
-    return ( 
+    };
+    return (
       <div style={childCardStyle.card}>
         <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
         <div >
@@ -70,4 +76,3 @@ export default class PractitionerCard extends Component {
     );
   }
 }
-

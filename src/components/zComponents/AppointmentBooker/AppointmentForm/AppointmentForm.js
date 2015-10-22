@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 // import {bindActionCreators} from 'redux';
 import {connectReduxForm} from 'redux-form';
 // import {connect} from 'react-redux';
@@ -8,14 +8,6 @@ import {connectReduxForm} from 'redux-form';
 // import { Link } from 'react-router';
 // import moment from 'moment';
 
-const baseStyles = {
-  background: 'RGBA(176, 235, 243, 0.8)',
-  border: 0,
-  borderRadius: 4,
-  color: 'RGBA(119, 119, 119, 1)',
-  padding: '0.7em'
-};
-
 @connectReduxForm({
   form: 'appointmentForm',
   fields: ['patientName', 'patientEmail', 'patientPhoneNumber', 'patientPostalCode', 'patientGender']
@@ -24,12 +16,15 @@ const baseStyles = {
 })
 export default
 class AppointmentForm extends Component {
+  static propTypes = {
+    fields: PropTypes.any,
+    handleSubmit: PropTypes.func,
+  }
 
   render() {
     const{
-      fields: {patientName, patientEmail, patientPhoneNumber, patientPostalCode, patientGender},
-      handleSubmit,
-      handleChange
+      fields: {patientName, patientEmail, patientPhoneNumber, patientPostalCode},
+      handleSubmit
       } = this.props;
     // const styles = require('./AppointmentForm.scss');
 

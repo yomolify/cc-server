@@ -1,4 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, {
+  Component, PropTypes
+}
+from 'react';
 import Modal from 'react-modal';
 import AppointmentBooker from '../AppointmentBooker/AppointmentBooker.js';
 
@@ -11,66 +14,69 @@ const baseStyles = {
 };
 
 const customStyles = {
-  overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     transitionDuration: '.5s',
-    backgroundColor   : 'rgba(255, 255, 255, 0.90)'
+    backgroundColor: 'rgba(255, 255, 255, 0.90)'
   },
-  content : {
-    fontFamily: "Helvetica Neue",
-    position                   : 'absolute',
-    top                        : '80px',
-    left                       : '400px',
-    right                      : '400px',
-    bottom                     : '200px',
-    border                     : '2px solid #ccc',
-    background                 : '#EAFDFF',
-    overflow                   : 'auto',
-    WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '10px',
-    outline                    : 'none',
+  content: {
+    fontFamily: 'Helvetica Neue',
+    position: 'absolute',
+    top: '80px',
+    left: '400px',
+    right: '400px',
+    bottom: '200px',
+    border: '2px solid #ccc',
+    background: '#EAFDFF',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '10px',
+    outline: 'none',
     transitionDuration: '.5s',
-    padding                    : '20px'
+    padding: '20px'
   }
 };
 export default class ModalButton extends Component {
+  static propTypes = {
+    modalIsOpen: PropTypes.bool,
+    time: PropTypes.string,
+    date: PropTypes.string,
+    practitioner: PropTypes.string,
+  }
   state = {
     modalIsOpen: false
   }
   openModal() {
-    this.setState({modalIsOpen: true});
+    this.setState({
+      modalIsOpen: true
+    });
   }
   closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-  static propTypes = {
-    modalIsOpen: PropTypes.bool,
-    time: PropTypes.string
+    this.setState({
+      modalIsOpen: false
+    });
   }
   render() {
-    const {modalIsOpen} = this.state;
-    const {date, time, practitioner} = this.props;
-    // console.log('date', date);
-    var correctedTime;
-    // console.log((Number(time.slice(0, 2))))
+    const {
+      modalIsOpen
+    } = this.state;
+    const {
+      date, time, practitioner
+    } = this.props;
+    let correctedTime;
     if ((Number(time.slice(0, 2) > 12))) {
       correctedTime = (Number(time.slice(0, 2))) - 12;
-      // console.log(correctedTime);
       correctedTime = correctedTime.toString() + ':00';
-      // console.log(correctedTime);
       if ((Number(time.slice(0, 2) > 10))) {
         correctedTime = '0' + correctedTime;
       }
-    }
-    else {
+    } else {
       correctedTime = time;
     }
-    // console.log('modalIsOpen', modalIsOpen);
-    const style = require('./ModalButton.scss');
     return (
       <div>
       <br/>
@@ -81,12 +87,10 @@ export default class ModalButton extends Component {
           style={customStyles}>
           <h3 style={{fontFamily: 'Helvetica Neue'}}>Book Appointment with Dr {practitioner} for {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
           <div style={{width: '100%', height: '100X'}}>
-          <AppointmentBooker style={{fontFamily: "Helvetica Neue"}} practitioner={practitioner} time={time} date={date}/>
+          <AppointmentBooker style={{fontFamily: 'Helvetica Neue'}} practitioner={practitioner} time={time} date={date}/>
           </div>
         </Modal>
       </div>
     );
   }
 }
-
-// <button style={baseStyles} onClick={::this.closeModal}>Cancel</button>

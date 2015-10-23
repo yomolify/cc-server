@@ -20,7 +20,7 @@ export default class Home extends Component {
           <div style={{width: '40%', position: 'relative', float: 'left'}}>
             <SearchBar />
           </div>
-          <div style={{width: '60%', position: 'relative', float: 'left'}}>
+          <div style={{width: '60%', position: 'relative', float: 'right', pointerEvents: 'none'}}>
             <GeolocationService/>
           </div>
           </div>

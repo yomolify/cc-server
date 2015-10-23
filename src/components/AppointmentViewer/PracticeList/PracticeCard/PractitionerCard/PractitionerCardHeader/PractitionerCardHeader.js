@@ -11,8 +11,9 @@ class PractitionerCardHeader extends Component {
       padding: '1rem',
       background:'FFF',
       name : {
-        fontSize: '1.625rem',
-        fontWeight: '200',
+        fontSize: '2rem',
+        padding: '1em',
+        marginLeft: '30px'
       },
       specialization: {
         fontSize: '1.3rem',
@@ -21,8 +22,8 @@ class PractitionerCardHeader extends Component {
     }
     const name = this.props.firstName + ' ' + this.props.lastName;
     return (
-      <div>
-        <h3 style={styles.name}>{name}</h3>
+      <div style={styles.name}>
+        {name}
         <small style={styles.specialization}>{this.props.specialization}</small>
       </div>
     );

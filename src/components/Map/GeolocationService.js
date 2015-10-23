@@ -4,10 +4,10 @@ import React, {
 from 'react/addons';
 import Radium from 'radium';
 import SimpleMapPage from './SimpleMapPage';
-// const und = 'undefined';
+const und = 'undefined';
 
 const geolocation = (
-  'undefined' !== typeof window && navigator && navigator.geolocation || {
+  und !== typeof window && navigator && navigator.geolocation || {
     getCurrentPosition: (success, failure) => {
       failure("Your browser doesn't support geolocation.");
     },

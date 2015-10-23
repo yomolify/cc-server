@@ -1,12 +1,11 @@
 {
   "javascript": {
-    "main": "http://localhost:3001/dist/main-a9bba2dba4219f0bfea0.js"
+    "main": "http://localhost:3001/dist/main-020b16c9d7c05fc6fc54.js"
+  },
   "styles": {},
   "images": {},
   "style_modules": {
-    "./src/components/SearchBar/SearchBar.scss": {
-      "bookAppointmentPage": "bookAppointmentPage___2uUDY"
-    },
+    "./src/components/SearchBar/SearchBar.scss": {},
     "./src/containers/Home/Home.scss": {
       "home": "home___3kGik",
       "masthead": "masthead___3HbLE",

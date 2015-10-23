@@ -21,10 +21,7 @@ class PracticeCardHeader extends Component {
       name: {
         fontSize: '2.5rem',
         fontWeight: '300',
-<<<<<<< HEAD
-=======
         paddingLeft: '0.5em'
->>>>>>> temp
       },
       appointment: {
         fontSize: '1.5rem',

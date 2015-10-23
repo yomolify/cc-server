@@ -70,11 +70,7 @@ export default class SimpleMapPage extends Component {
     return (
       <Gmaps
         width={'100%'}
-<<<<<<< HEAD
-        height={'1000px'}
-=======
         height={'956px'}
->>>>>>> temp
         lat={this.props.center.lat}
         lng={this.props.center.lng}
         zoom={this.props.zoom}

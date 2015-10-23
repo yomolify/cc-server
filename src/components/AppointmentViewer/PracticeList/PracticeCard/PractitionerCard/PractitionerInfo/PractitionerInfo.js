@@ -27,10 +27,7 @@ class PractitionerInfo extends Component {
       specialization: {
         fontSize: '1.5rem',
         fontWeight: '150',
-<<<<<<< HEAD
-=======
         paddingLeft: '0.8em'
->>>>>>> temp
       },
     };
     const name = this.props.firstName + ' ' + this.props.lastName;

@@ -202,11 +202,7 @@ export default class PracticeList extends Component {
     });
     /*eslint-enable */
     return (
-<<<<<<< HEAD
-      <div style={{overflow: 'scroll', overflowX: 'hidden', height: '1000px', width: '100%'}}>{practiceCardNodes}</div>
-=======
       <div style={{overflow: 'scroll', overflowX: 'hidden', height: '909px', width: '100%', display: 'flex', flexDirection: 'column' }}>{practiceCardNodes}</div>
->>>>>>> temp
     );
   }
 }

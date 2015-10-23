@@ -6,11 +6,7 @@ import Modal from 'react-modal';
 import AppointmentBooker from '../AppointmentBooker/AppointmentBooker.js';
 
 const baseStyles = {
-<<<<<<< HEAD
-  background: 'RGBA(176, 235, 243, 0.8)',
-=======
   background: '#CADFAA',
->>>>>>> temp
   border: 0,
   borderRadius: 4,
   color: 'RGBA(119, 119, 119, 1)',

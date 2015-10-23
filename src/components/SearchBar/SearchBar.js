@@ -97,15 +97,6 @@ export default class SearchBar extends Component {
       pickedDate, pickedTime, pickedPractitioner
     } = this.state;
     const styles = require('./SearchBar.scss');
-<<<<<<< HEAD
-    // const ddStyle = require('./DropdownStyle.css');
-    // const preventNotUsedErr = ddStyle.toString();
-    // console.log(preventNotUsedErr.charAt(1));
-    const listStyle = {
-      datetime: {
-        display: 'flex',
-        flexFlow: 'row'
-=======
     const ddStyle = require('./DropdownStyle.css');
     const preventNotUsedErr = ddStyle.toString();
     console.log(preventNotUsedErr.charAt(1));
@@ -116,7 +107,6 @@ export default class SearchBar extends Component {
         justifyContent: 'space-around',
         background: 'blanchedalmond',
         border: '5px solid blanchedalmond'
->>>>>>> temp
       }
     };
 
@@ -157,20 +147,11 @@ export default class SearchBar extends Component {
                 options={practitioners}
                 onChange={::this.practitionerChange}
                 ref="practitioner"
-<<<<<<< HEAD
-=======
                 style={{width: '50%'}}
->>>>>>> temp
             />
             </div>
           </div>
           <div>
-<<<<<<< HEAD
-            <br/>
-            <br/>
-            <br/>
-=======
->>>>>>> temp
             <AppointmentViewer style={{fontFamily: 'Helvetica Neue'}} date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
           </div>
         </div>

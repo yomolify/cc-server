@@ -7,7 +7,6 @@ import AppointmentBooker from '../AppointmentBooker/AppointmentBooker.js';
 
 const baseStyles = {
   background: '#CADFAA',
-  border: 0,
   borderRadius: 4,
   color: 'RGBA(119, 119, 119, 1)',
   padding: '0.7em'
@@ -21,7 +20,8 @@ const customStyles = {
     right: 0,
     bottom: 0,
     transitionDuration: '.5s',
-    backgroundColor: 'rgba(255, 255, 255, 0.90)'
+    backgroundColor: 'rgba(255, 255, 255, 0.90)',
+    border: '5px solid #ccc'
   },
   content: {
     fontFamily: 'Helvetica Neue',
@@ -30,7 +30,7 @@ const customStyles = {
     left: '400px',
     right: '400px',
     bottom: '200px',
-    border: '2px solid #ccc',
+    border: '5px solid #ccc',
     background: '#EAFDFF',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',

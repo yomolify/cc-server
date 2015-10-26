@@ -36,19 +36,28 @@ export default class PractitionerCard extends Component {
         display: 'flex',
         flexFlow: 'column',
         background: '#FFFFFF',
-        borderTop: '1px solid blanchedalmond',
+        borderTop: '1px solid #E8DDBD',
+        borderLeft: '5px solid #CADFAA',
         height: '150px',
         padding: '10px',
         transitionDuration: '0.3s',
         ':hover': {
-          background: 'blanchedalmond'
+          background: '#E8DDBD'
         },
       },
+      info: {
+        height: '4em'
+      },
+      avatar: {
+        borderRadius: '1px'
+      }
     };
     return (
       <div style={childCardStyle.card}>
-        <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
-        <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'space-around'}}>
+        <div style={childCardStyle.info}>
+          <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
+        </div>
+        <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'space-around', marginLeft: '24px'}}>
             <ModalButton time={timeMinusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
             <ModalButton time={time} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
             <ModalButton time={timePlusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>

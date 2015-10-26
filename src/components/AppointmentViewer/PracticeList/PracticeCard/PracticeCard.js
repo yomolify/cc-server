@@ -24,7 +24,8 @@ export default class PracticeCard extends Component {
     const cardStyles = {
       card: {
         background: '#FFFFFF',
-        border: '7px solid blanchedalmond',
+        borderBottom: '7px solid #E8DDBD',
+        borderLeft: '7px solid blanchedalmond',
         display: 'flex',
         flexFlow: 'column',
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
@@ -37,7 +38,9 @@ export default class PracticeCard extends Component {
 
       <div style={{width: '100%'}}>
         <div style={cardStyles.card}>
+          <div style={{borderLeft: '5px solid rgba(179, 209, 255, 0.51)'}}>
             <PracticeCardHeader practiceName={this.props.practice.Name} practiceAddress={this.props.practice.Address} date={date} time={time} />
+          </div>
             <PractitionerCardList data={this.props.practice.Practitioners} date={date} time={time}/>
         </div>
       </div>

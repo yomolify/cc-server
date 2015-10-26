@@ -21,7 +21,8 @@ class PracticeCardHeader extends Component {
       name: {
         fontSize: '2.5rem',
         fontWeight: '300',
-        paddingLeft: '0.5em'
+        paddingLeft: '0.5em',
+
       },
       appointment: {
         fontSize: '1.5rem',
@@ -33,9 +34,13 @@ class PracticeCardHeader extends Component {
         fontWeight: '100',
         paddingLeft: '0.5em'
       },
+      header: {
+        border: '5px solid black'
+
+      }
     };
     return (
-      <div>
+      <div styles={{borderLeft: '5px solid black'}}>
         <h3 style={styles.name}>{this.props.practiceName}</h3>
         <small style={styles.address}>{this.props.practiceAddress}</small>
       </div>

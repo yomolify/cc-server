@@ -43,7 +43,6 @@ export default class About extends Component {
                   onClick={::this.handleToggleKitten}>
             {showKitten ? 'No! Take it away!' : 'Yes! Please!'}</button>
         </p>
-
         {showKitten && <div><img src={kitten}/></div>}
       </div>
     );

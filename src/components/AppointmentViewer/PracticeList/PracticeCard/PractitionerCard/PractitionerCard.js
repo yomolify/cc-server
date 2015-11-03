@@ -36,13 +36,13 @@ export default class PractitionerCard extends Component {
         display: 'flex',
         flexFlow: 'column',
         background: '#FFFFFF',
-        borderTop: '1px solid #E8DDBD',
-        borderLeft: '5px solid #CADFAA',
+        borderTop: '1px solid #2778C7',
+        borderLeft: '5px solid #8EC51F',
         height: '150px',
         padding: '10px',
         transitionDuration: '0.3s',
         ':hover': {
-          background: '#E8DDBD'
+          background: '#2778C7'
         },
       },
       info: {

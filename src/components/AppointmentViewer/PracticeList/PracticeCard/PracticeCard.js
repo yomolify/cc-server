@@ -14,7 +14,7 @@ export default class PracticeCard extends Component {
     practice: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Address: PropTypes.string.isRequired,
-      Practitioners: PropTypes.string.isRequired
+      practitioners: PropTypes.string.isRequired
     }),
   }
   render() {
@@ -24,8 +24,8 @@ export default class PracticeCard extends Component {
     const cardStyles = {
       card: {
         background: '#FFFFFF',
-        borderBottom: '7px solid #E8DDBD',
-        borderLeft: '7px solid blanchedalmond',
+        borderBottom: '7px solid #2778C7',
+        borderLeft: '7px solid #2778C7',
         display: 'flex',
         flexFlow: 'column',
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
@@ -38,10 +38,10 @@ export default class PracticeCard extends Component {
 
       <div style={{width: '100%'}}>
         <div style={cardStyles.card}>
-          <div style={{borderLeft: '5px solid rgba(179, 209, 255, 0.51)'}}>
+          <div>
             <PracticeCardHeader practiceName={this.props.practice.Name} practiceAddress={this.props.practice.Address} date={date} time={time} />
           </div>
-            <PractitionerCardList data={this.props.practice.Practitioners} date={date} time={time}/>
+            <PractitionerCardList data={this.props.practice.practitioners} date={date} time={time}/>
         </div>
       </div>
     );

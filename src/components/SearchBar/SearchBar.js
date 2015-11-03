@@ -1,24 +1,10 @@
-import Kronos from 'react-kronos';
 import React, {
   Component, PropTypes
 }
 from 'react';
 import AppointmentViewer from '../AppointmentViewer/AppointmentViewer';
+import SearchBarComponent from './SearchBarComponent';
 import moment from 'moment';
-const Select = require('react-select');
-const practitioners = [{
-  value: 'Select Practice',
-  label: 'Select Practice'
-}, {
-  value: 'Kitsilano Dental Group',
-  label: 'Kitsilano Dental Group'
-}, {
-  value: 'Atlantis Dental Centre',
-  label: 'Atlantis Dental Centre'
-}, {
-  value: 'Yaletown Dentistry',
-  label: 'Yaletown Dentistry'
-}];
 
 export default class SearchBar extends Component {
   static propTypes = {
@@ -74,6 +60,10 @@ export default class SearchBar extends Component {
 
   }
 
+  handleSubmit() {
+    console.log(123123123123);
+  }
+
   practitionerChange(val) {
     if (val === '') {
       this.setState({
@@ -100,62 +90,15 @@ export default class SearchBar extends Component {
     const ddStyle = require('./DropdownStyle.css');
     const preventNotUsedErr = ddStyle.toString();
     console.log(preventNotUsedErr.charAt(1));
-    const listStyle = {
-      datetime: {
-        display: 'flex',
-        flexFlow: 'row',
-        justifyContent: 'space-around',
-        background: 'blanchedalmond',
-        border: '5px solid blanchedalmond'
-      }
-    };
-
-    const props = {
-      options: {
-        color: '#67c446',
-        corners: 4,
-        fontFamily: 'Source Sans Pro',
-      },
-    };
-
-    const minDate = moment();
-    const maxDate = moment().add(2, 'weeks').toDate();
     return (
       <div>
         {
-        <div style={styles}>
-          <div className="kronos">
-            <div style={listStyle.datetime}>
-              <Kronos
-                  date={this.state.datetime}
-                  onChange={::this.onChange}
-                  min={minDate}
-                  max={maxDate}
-                  format="dddd, MMM Do"
-                  {...props}
-                />
-              <Kronos
-                  time={this.state.datetime}
-                  onChange={::this.onChange}
-                  min={minDate}
-                  max={maxDate}
-                  {...props}
-                />
-              <Select
-                name="form-field-name"
-                value={pickedPractitioner}
-                options={practitioners}
-                onChange={::this.practitionerChange}
-                ref="practitioner"
-                style={{width: '50%'}}
-            />
+          <div style={styles}>
+            <SearchBarComponent onSubmit={::this.handleSubmit}/>
+            <div>
+              <AppointmentViewer style={{fontFamily: 'Helvetica Neue'}} date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
             </div>
           </div>
-          <div>
-            <AppointmentViewer style={{fontFamily: 'Helvetica Neue'}} date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
-          </div>
-        </div>
-
         }
       </div>
     );

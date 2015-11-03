@@ -162,7 +162,7 @@
     "react-modal-inline": "^1.0.0",
     "react-pure-render": "^1.0.2",
     "react-select": "^0.6.12",
-    "react-sticky": "^2.5.2",
+    "react-sticky": "^3.0.0",
     "react-stickydiv": "^3.4.15",
     "react-transform-hmr": "^1.0.0",
     "react-widgets": "^2.8.1",

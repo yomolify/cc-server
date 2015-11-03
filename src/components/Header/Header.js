@@ -18,7 +18,7 @@ export default class Header extends Component {
       div: {
         width: '100%',
         margin: '0px 0px 0px',
-        backgroundColor: '#CADFAA',
+        backgroundColor: '#8EC51F',
         height: '350px'
       },
       mainText: {

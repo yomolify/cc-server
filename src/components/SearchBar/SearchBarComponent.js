@@ -21,6 +21,23 @@ const practitioners = [{
   label: 'Yaletown Dentistry'
 }];
 
+const locations = [{
+  value: 'City, Neighbourhood or Pin',
+  label: 'City, Neighbourhood or Pin'
+}, {
+  value: 'Downtown Vancouver',
+  label: 'Downtown Vancouver'
+}, {
+  value: 'Kitsilano',
+  label: 'Kitsilano'
+}, {
+  value: 'Kerrisdale',
+  label: 'Kerrisdale'
+}, {
+  value: 'Marpole',
+  label: 'Marpole'
+}];
+
 @connectReduxForm({
   form: 'SearchBarForm',
   fields: ['patientName', 'patientEmail', 'patientPhoneNumber']
@@ -44,6 +61,7 @@ export default class SearchBarComponent extends Component {
     pickedDate: '2015-10-08',
     pickedTime: '15:00',
     pickedPractitioner: 'Select Practice',
+    pickedLocation: 'City, Neighbourhood or Postal Code',
     datetime: moment().toISOString()
   }
   onChange(datetime) {
@@ -93,6 +111,17 @@ export default class SearchBarComponent extends Component {
       });
     }
   }
+  locationChange(val) {
+    if (val === '') {
+      this.setState({
+        pickedLocation: 'City, Neighbourhood or Postal Code'
+      });
+    } else {
+      this.setState({
+        pickedLocation: val
+      });
+    }
+  }
 
   static fetchData(store) {
     if (!isAuthLoaded(store.getState())) {
@@ -102,7 +131,7 @@ export default class SearchBarComponent extends Component {
 
   render() {
     const {
-      pickedPractitioner
+      pickedPractitioner, pickedLocation
     } = this.state;
     const {
       handleSubmit
@@ -117,7 +146,8 @@ export default class SearchBarComponent extends Component {
         flexFlow: 'row',
         justifyContent: 'space-around',
         background: '#2778C7',
-        border: '5px solid #2778C7'
+        border: '10px solid #2778C7',
+        fontSize: '20px'
       }
     };
 
@@ -138,6 +168,7 @@ export default class SearchBarComponent extends Component {
             <form onSubmit={handleSubmit}>
               <div className="kronos">
                 <div style={listStyle.datetime}>
+                  <div style={{padding: '5px'}}/>
                   <Kronos
                       date={this.state.datetime}
                       onChange={::this.onChange}
@@ -145,19 +176,30 @@ export default class SearchBarComponent extends Component {
                       max={maxDate}
                       format="dddd, MMM Do"
                       {...props}/>
+                  <div style={{padding: '5px'}}/>
                   <Kronos
                       time={this.state.datetime}
                       onChange={::this.onChange}
                       min={minDate}
                       max={maxDate}
                       {...props}/>
+                  <div style={{padding: '5px'}}/>
                   <Select
                     name="form-field-name"
                     value={pickedPractitioner}
                     options={practitioners}
                     onChange={::this.practitionerChange}
                     ref="practitioner"
-                    style={{width: '50%'}}/>
+                    />
+                  <div style={{padding: '5px'}}/>
+                  <Select
+                    name="form-field-name"
+                    value={pickedLocation}
+                    options={locations}
+                    onChange={::this.locationChange}
+                    ref="location"
+                    />
+                  <div style={{padding: '5px'}}/>
                 </div>
               </div>
             </form>

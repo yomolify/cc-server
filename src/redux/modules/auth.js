@@ -77,10 +77,15 @@ export function isLoaded(globalState) {
   return globalState.auth && globalState.auth.loaded;
 }
 
-export function load() {
+export function load(name, neighborhood) {
   return {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/practices')
+    promise: (client) => client.get('/practices', {
+      data: {
+        name: name,
+        neighborhood: neighborhood
+      }
+    })
   };
 }
 

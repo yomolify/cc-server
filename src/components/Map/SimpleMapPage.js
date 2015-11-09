@@ -63,10 +63,6 @@ export default class SimpleMapPage extends Component {
   }
 
   render() {
-    const {
-      infoShow
-    } = this.state;
-    console.log(infoShow);
     return (
       <Gmaps
         width={'100%'}

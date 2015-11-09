@@ -1,6 +1,9 @@
 const LOAD = 'redux-example/auth/LOAD';
 const LOAD_SUCCESS = 'redux-example/auth/LOAD_SUCCESS';
 const LOAD_FAIL = 'redux-example/auth/LOAD_FAIL';
+const SEARCH = 'redux-example/auth/SEARCH';
+const SEARCH_SUCCESS = 'redux-example/auth/SEARCH_SUCCESS';
+const SEARCH_FAIL = 'redux-example/auth/SEARCH_FAIL';
 const LOGIN = 'redux-example/auth/LOGIN';
 const LOGIN_SUCCESS = 'redux-example/auth/LOGIN_SUCCESS';
 const LOGIN_FAIL = 'redux-example/auth/LOGIN_FAIL';
@@ -27,6 +30,25 @@ export default function reducer(state = initialState, action = {}) {
         practices: action.result
       };
     case LOAD_FAIL:
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: action.error
+      };
+    case SEARCH:
+      return {
+        ...state,
+        loading: true
+      };
+    case SEARCH_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        practices: action.result
+      };
+    case SEARCH_FAIL:
       return {
         ...state,
         loading: false,
@@ -77,11 +99,19 @@ export function isLoaded(globalState) {
   return globalState.auth && globalState.auth.loaded;
 }
 
-export function load(name, neighborhood) {
+export function load() {
   return {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/practices', {
-      data: {
+    promise: (client) => client.get('/practices')
+  };
+}
+export function search(name, neighborhood) {
+  console.log("name", name);
+  console.log("neighborhood", neighborhood);
+  return {
+    types: [SEARCH, SEARCH_SUCCESS, SEARCH_FAIL],
+    promise: (client) => client.get('/search', {
+      params: {
         name: name,
         neighborhood: neighborhood
       }

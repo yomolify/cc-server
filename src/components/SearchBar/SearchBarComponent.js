@@ -3,47 +3,16 @@ import React, {
   Component, PropTypes
 }
 from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import moment from 'moment';
-import {connectReduxForm} from 'redux-form';
+import * as searchActions from '../../redux/modules/auth';
 // import Sticky from 'react-sticky';
 const Select = require('react-select');
-const practitioners = [{
-  value: 'Select Practice',
-  label: 'Select Practice'
-}, {
-  value: 'Kitsilano Dental Group',
-  label: 'Kitsilano Dental Group'
-}, {
-  value: 'Atlantis Dental Centre',
-  label: 'Atlantis Dental Centre'
-}, {
-  value: 'Yaletown Dentistry',
-  label: 'Yaletown Dentistry'
-}];
 
-const locations = [{
-  value: 'City, Neighbourhood or Pin',
-  label: 'City, Neighbourhood or Pin'
-}, {
-  value: 'Downtown Vancouver',
-  label: 'Downtown Vancouver'
-}, {
-  value: 'Kitsilano',
-  label: 'Kitsilano'
-}, {
-  value: 'Kerrisdale',
-  label: 'Kerrisdale'
-}, {
-  value: 'Marpole',
-  label: 'Marpole'
-}];
-
-@connectReduxForm({
-  form: 'SearchBarForm',
-  fields: ['patientName', 'patientEmail', 'patientPhoneNumber']
-  // state => ({user: state.auth.user, token: state.auth.token}),
-  // dispatch => bindActionCreators(bookActions, dispatch)
-})
+@connect(
+  state => ({practices: state.auth.practices}),
+  dispatch => bindActionCreators(searchActions, dispatch))
 export default class SearchBarComponent extends Component {
   static propTypes = {
     user: PropTypes.object,
@@ -55,15 +24,20 @@ export default class SearchBarComponent extends Component {
     pickedDate: PropTypes.string,
     pickedTime: PropTypes.string,
     pickedPractitioner: PropTypes.string,
+    practices: PropTypes.any,
+    search: PropTypes.func,
     handleSubmit: PropTypes.func
   }
   state = {
     pickedDate: '2015-10-08',
     pickedTime: '15:00',
     pickedPractitioner: 'Select Practice',
+    pickedPractice: 'All practices',
+    pickedNeighborhood: 'All Neighborhoods',
     pickedLocation: 'City, Neighbourhood or Postal Code',
     datetime: moment().toISOString()
   }
+
   onChange(datetime) {
     const selected = moment(datetime);
     const hour = selected.hour();
@@ -97,30 +71,33 @@ export default class SearchBarComponent extends Component {
     this.setState({
       pickedDate: wholeDate
     });
-
   }
 
-  practitionerChange(val) {
+  practiceChange(val) {
     if (val === '') {
       this.setState({
-        pickedPractitioner: 'Select Practice'
+        pickedPractice: 'Select Practice'
       });
     } else {
       this.setState({
-        pickedPractitioner: val
+        pickedPractice: val
       });
     }
   }
-  locationChange(val) {
+  neighborhoodChange(val) {
     if (val === '') {
       this.setState({
-        pickedLocation: 'City, Neighbourhood or Postal Code'
+        pickedNeighborhood: 'Neighborhood'
       });
     } else {
       this.setState({
-        pickedLocation: val
+        pickedNeighborhood: val
       });
     }
+  }
+
+  handleSubmit() {
+    this.props.search(this.state.pickedPractice, this.state.pickedNeighborhood);
   }
 
   static fetchData(store) {
@@ -131,15 +108,27 @@ export default class SearchBarComponent extends Component {
 
   render() {
     const {
-      pickedPractitioner, pickedLocation
+      pickedPractice, pickedNeighborhood
     } = this.state;
     const {
-      handleSubmit
+      practices
     } = this.props;
     const styles = require('./SearchBar.scss');
     const ddStyle = require('./DropdownStyle.css');
     const preventNotUsedErr = ddStyle.toString();
     console.log(preventNotUsedErr.charAt(1));
+    /*eslint-disable */
+    let practiceOptions = [{value: 'all', label: "All Practices"}];
+    for (let i = 0; i < practices.length; i++) {
+      let practiceName = practices[i].Name;
+      practiceOptions.push({value: practiceName, label: practiceName});
+    }
+    let neighborhoodOptions = [{value: 'all', label: 'All Neighborhoods'}];
+    for (let i = 0; i < practices.length; i++) {
+      let neighborhoodName = practices[i].Neighborhood;
+      neighborhoodOptions.push({value: neighborhoodName, label: neighborhoodName});
+    }
+    /*eslint-enable */
     const listStyle = {
       datetime: {
         display: 'flex',
@@ -165,7 +154,6 @@ export default class SearchBarComponent extends Component {
       <div>
         {
           <div style={styles}>
-            <form onSubmit={handleSubmit}>
               <div className="kronos">
                 <div style={listStyle.datetime}>
                   <div style={{padding: '5px'}}/>
@@ -185,24 +173,24 @@ export default class SearchBarComponent extends Component {
                       {...props}/>
                   <div style={{padding: '5px'}}/>
                   <Select
-                    name="form-field-name"
-                    value={pickedPractitioner}
-                    options={practitioners}
-                    onChange={::this.practitionerChange}
-                    ref="practitioner"
+                    name="practice"
+                    value={pickedPractice}
+                    options={practiceOptions}
+                    onChange={::this.practiceChange}
+                    ref="practice"
                     />
                   <div style={{padding: '5px'}}/>
                   <Select
-                    name="form-field-name"
-                    value={pickedLocation}
-                    options={locations}
-                    onChange={::this.locationChange}
-                    ref="location"
+                    name="neighborhood"
+                    value={pickedNeighborhood}
+                    options={neighborhoodOptions}
+                    onChange={::this.neighborhoodChange}
+                    ref="neighborhood"
                     />
+                  <button onClick={::this.handleSubmit}>Search</button>
                   <div style={{padding: '5px'}}/>
                 </div>
               </div>
-            </form>
           </div>
         }
       </div>

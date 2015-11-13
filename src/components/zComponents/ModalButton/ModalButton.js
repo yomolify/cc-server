@@ -4,13 +4,7 @@ import React, {
 from 'react';
 import Modal from 'react-modal';
 import AppointmentBooker from '../AppointmentBooker/AppointmentBooker.js';
-
-const baseStyles = {
-  background: '#8EC51F',
-  borderRadius: 4,
-  color: 'RGBA(119, 119, 119, 1)',
-  padding: '0.7em'
-};
+import Radium from 'radium';
 
 const customStyles = {
   overlay: {
@@ -20,18 +14,15 @@ const customStyles = {
     right: 0,
     bottom: 0,
     transitionDuration: '.5s',
-    backgroundColor: 'rgba(255, 255, 255, 0.90)',
     border: '5px solid #ccc'
   },
   content: {
     fontFamily: 'Helvetica Neue',
     position: 'absolute',
-    top: '80px',
     left: '400px',
     right: '400px',
     bottom: '200px',
     border: '5px solid #ccc',
-    background: '#EAFDFF',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '10px',
@@ -40,6 +31,7 @@ const customStyles = {
     padding: '20px'
   }
 };
+@Radium
 export default class ModalButton extends Component {
   static propTypes = {
     modalIsOpen: PropTypes.bool,
@@ -61,6 +53,14 @@ export default class ModalButton extends Component {
     });
   }
   render() {
+    const baseStyles = {
+      borderRadius: 4,
+      background: '#eee',
+      transitionDuration: '0.3s',
+      ':hover': {
+        background: '#ccc'
+      }
+    };
     const {
       modalIsOpen
     } = this.state;
@@ -79,8 +79,7 @@ export default class ModalButton extends Component {
     }
     return (
       <div>
-      <br/>
-        <button style={baseStyles} onClick={::this.openModal}>Book @ {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</button>
+        <button style={baseStyles} onClick={::this.openModal}>{correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={::this.closeModal}

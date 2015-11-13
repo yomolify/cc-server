@@ -31,37 +31,38 @@ export default class PractitionerCard extends Component {
     if ((Number(timePlusOne.slice(0, 1))) > 1) {
       timePlusOne = '0' + timePlusOne;
     }
-    const childCardStyle = {
+    const style = {
       card: {
         display: 'flex',
-        flexFlow: 'column',
+        flexFlow: 'row wrap',
+        alignContent: 'stretch',
         background: '#FFFFFF',
-        borderTop: '1px solid #2778C7',
-        borderLeft: '5px solid #8EC51F',
-        height: '150px',
-        padding: '10px',
+        borderTop: '1px solid #aaa',
+        borderLeft: '5px solid #ddd',
         transitionDuration: '0.3s',
         ':hover': {
-          background: '#2778C7'
-        },
+          background: '#eee'
+        }
       },
-      info: {
-        height: '4em'
+      practice: {
+        width: '80%'
       },
-      avatar: {
-        borderRadius: '1px'
+      times: {
+        display: 'flex',
+        flexFlow: 'column',
+        justifyContent: 'space-around'
       }
     };
     return (
-      <div style={childCardStyle.card}>
-        <div style={childCardStyle.info}>
-          <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
-        </div>
-        <div style={{display: 'flex', flexFlow: 'row', justifyContent: 'space-around', marginLeft: '24px'}}>
+      <div style={style.card}>
+          <div style={style.practice}>
+            <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
+          </div>
+          <div style={style.times}>
             <ModalButton time={timeMinusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
             <ModalButton time={time} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
             <ModalButton time={timePlusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
-        </div>
+          </div>
       </div>
     );
   }

@@ -16,20 +16,21 @@ class PractitionerInfo extends Component {
     const styles = {
       borderRadius: '10px',
       float: 'left',
-      fontStyle: 'Roboto',
       padding: '1rem',
       background: 'FFF',
       name: {
-        fontSize: '1.825rem',
-        fontWeight: '300',
+        fontSize: '2.2em',
+        fontWeight: '400',
         paddingLeft: '0.6em'
       },
       specialization: {
-        fontSize: '1.5rem',
-        fontWeight: '150',
-        paddingLeft: '0.8em'
+        fontSize: '2em',
+        fontWeight: '100',
+        paddingLeft: '0.7em'
       },
-      avatar: {
+      container: {
+        height: '9em',
+        padding: '1em',
         display: 'flex',
         flexFlow: 'row',
         justifyContent: 'flex-start'
@@ -39,13 +40,14 @@ class PractitionerInfo extends Component {
         flexFlow: 'column'
       },
       svg: {
-        width: '50px'
+        padding: '10',
+        width: '80px'
       }
     };
     const name = this.props.firstName + ' ' + this.props.lastName;
     return (
       <div>
-        <div style={styles.avatar}>
+        <div style={styles.container}>
           <svg style={styles.svg}>
              <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765
                S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,7.53-7.531,7.53

@@ -1,6 +1,4 @@
-body {
-  font-family: "Helvetica, Roboto, Arial, sans-serif";
-}
+
 .app {
   :global(.navbar-brand) {
     position:relative;
@@ -22,7 +20,5 @@ body {
   nav :global(.fa) {
     font-size: 2em;
     line-height: 20px;
-    fontFamily: "Roboto, Arial, sans-serif"
   }
 }
-

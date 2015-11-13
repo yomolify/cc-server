@@ -106,8 +106,8 @@ export function load() {
   };
 }
 export function search(name, neighborhood) {
-  console.log("name", name);
-  console.log("neighborhood", neighborhood);
+  // console.log("name", name);
+  // console.log("neighborhood", neighborhood);
   return {
     types: [SEARCH, SEARCH_SUCCESS, SEARCH_FAIL],
     promise: (client) => client.get('/search', {

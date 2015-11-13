@@ -35,7 +35,8 @@ export default class SearchBarComponent extends Component {
     pickedPractice: 'All practices',
     pickedNeighborhood: 'All Neighborhoods',
     pickedLocation: 'City, Neighbourhood or Postal Code',
-    datetime: moment().toISOString()
+    datetime: moment().toISOString(),
+    statePractices: []
   }
 
   onChange(datetime) {
@@ -97,6 +98,15 @@ export default class SearchBarComponent extends Component {
   }
 
   handleSubmit() {
+    // for (let i = 0; i < 3; i++) {
+    //   if (this.props.practices[i].Name === this.state.pickedPractice) {
+    //     this.setState({statePractices: this.state.statePractices.push(this.props.practices[i])})
+    //   }
+    //   if (this.props.practices[i].Neighborhood === this.state.pickedNeighborhood) {
+    //     this.setState({statePractices: this.state.statePractices.push(this.props.practices[i])})
+    //   }
+    // }
+    // console.log("statePractices", this.state.statePractices);
     this.props.search(this.state.pickedPractice, this.state.pickedNeighborhood);
   }
 
@@ -134,8 +144,8 @@ export default class SearchBarComponent extends Component {
         display: 'flex',
         flexFlow: 'row',
         justifyContent: 'space-around',
-        background: '#2778C7',
-        border: '10px solid #2778C7',
+        background: '#eee',
+        border: '10px solid #eee',
         fontSize: '20px'
       }
     };
@@ -187,7 +197,7 @@ export default class SearchBarComponent extends Component {
                     onChange={::this.neighborhoodChange}
                     ref="neighborhood"
                     />
-                  <button onClick={::this.handleSubmit}>Search</button>
+                  <button style={{paddingRight: '22px', marginLeft: '10px'}} onClick={::this.handleSubmit}>Search</button>
                   <div style={{padding: '5px'}}/>
                 </div>
               </div>

@@ -44,9 +44,9 @@ export default class Home extends Component {
               width: '100%'
             }
             }}>
-            <AppointmentViewer style={{fontFamily: 'Helvetica Neue'}} date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
+            <AppointmentViewer date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
           </div>
-          <div style={{width: '60%', position: 'relative', float: 'right', pointerEvents: 'none',
+          <div style={{width: '60%', border: '2px solid #999', borderBottom: '0px', position: 'relative', float: 'right', pointerEvents: 'none',
             '@media (max-width:1150px)': {
               width: '100%'
             }}}>

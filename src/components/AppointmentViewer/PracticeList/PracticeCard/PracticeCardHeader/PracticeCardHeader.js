@@ -13,36 +13,16 @@ class PracticeCardHeader extends Component {
   }
   render() {
     const styles = {
-      borderRadius: '10px',
-      float: 'left',
-      fontStyle: 'Roboto',
-      padding: '1rem',
-      background: 'FFF',
       name: {
-        fontSize: '2.5rem',
-        fontWeight: '300',
-        paddingLeft: '0.5em',
-
-      },
-      appointment: {
-        fontSize: '1.5rem',
-        fontWeight: '200',
-        paddingLeft: '0.5em'
-      },
-      address: {
-        fontSize: '2rem',
-        fontWeight: '100',
-        paddingLeft: '0.5em'
-      },
-      header: {
-        border: '5px solid black'
-
+        fontSize: '3em',
+        fontWeight: '400',
+        textAlign: 'center',
+        paddingBottom: '0.4em'
       }
     };
     return (
-      <div styles={{borderLeft: '5px solid black'}}>
+      <div>
         <h3 style={styles.name}>{this.props.practiceName}</h3>
-        <small style={styles.address}>{this.props.practiceAddress}</small>
       </div>
     );
   }

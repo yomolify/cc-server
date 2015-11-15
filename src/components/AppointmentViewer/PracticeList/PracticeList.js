@@ -30,7 +30,7 @@ export default class PracticeList extends Component {
     }
     /*eslint-enable */
     return (
-      <div style={{overflow: 'scroll', overflowX: 'hidden', height: '955px', width: '100%', display: 'flex', flexDirection: 'column' }}>{practiceCardNodes}</div>
+      <div style={{overflow: 'scroll', overflowX: 'hidden', ':-webkit-scrollbar': {width: '1px'}, height: '955px', width: '100%', display: 'flex', flexDirection: 'column' }}>{practiceCardNodes}</div>
     );
   }
 }

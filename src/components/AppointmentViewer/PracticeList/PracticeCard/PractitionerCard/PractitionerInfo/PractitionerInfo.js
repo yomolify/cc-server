@@ -19,11 +19,13 @@ class PractitionerInfo extends Component {
       padding: '1rem',
       background: 'FFF',
       name: {
+        color: '#555',
         fontSize: '2.2em',
         fontWeight: '400',
         paddingLeft: '0.6em'
       },
       specialization: {
+        color: '#555',
         fontSize: '2em',
         fontWeight: '100',
         paddingLeft: '0.7em'

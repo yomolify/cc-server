@@ -79,7 +79,7 @@ export default class Header extends Component {
                     </button>
                   </td>
                   <td>
-                    <button className="log-in" style={{
+                    <button style={{
                       fontWeight: '600',
                       display: 'inline-block',
                       overflow: 'hidden',
@@ -99,10 +99,10 @@ export default class Header extends Component {
         </div>
          <div className="banner-content" style={{width: '100%', height: '50%', textAlign: 'center', padding: '20px'}}>
           <div style={{width: '100%'}}>
-            <span style={{fontSize: '60px', color: 'white'}}>Your Health, Made Easy.</span>
+            <span style={{fontSize: '60px', color: '#eee'}}>Right Dentist, Right Now.</span>
           </div>
           <div style={{width: '100%'}}>
-            <span style={{fontSize: '24px', color: 'white'}}>Book dental appointments when and where you want.</span>
+            <span style={{fontSize: '24px', color: '#ddd'}}>Book dental appointments when and where you want.</span>
           </div>
          </div>
       </div>

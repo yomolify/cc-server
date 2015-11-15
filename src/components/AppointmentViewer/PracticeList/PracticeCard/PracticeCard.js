@@ -29,7 +29,7 @@ export default class PracticeCard extends Component {
         flexFlow: 'column',
       },
       header: {
-        background: '#eee'
+        background: '#ccc'
       }
     };
     return (

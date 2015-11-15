@@ -14,6 +14,7 @@ class PracticeCardHeader extends Component {
   render() {
     const styles = {
       name: {
+        color: '#555',
         fontSize: '3em',
         fontWeight: '400',
         textAlign: 'center',

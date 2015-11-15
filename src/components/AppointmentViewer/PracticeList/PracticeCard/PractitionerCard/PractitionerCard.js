@@ -18,6 +18,7 @@ export default class PractitionerCard extends Component {
     })
   }
   render() {
+    const text = 'More Times';
     const {
       date, time
     } = this.props;
@@ -51,6 +52,12 @@ export default class PractitionerCard extends Component {
         display: 'flex',
         flexFlow: 'column',
         justifyContent: 'space-around'
+      },
+      sticky: {
+        display: 'flex',
+        flexFlow: 'row',
+        justifyContent: 'flex-end',
+        width: '20%'
       }
     };
     return (
@@ -58,10 +65,13 @@ export default class PractitionerCard extends Component {
           <div style={style.practice}>
             <PractitionerInfo firstName={this.props.practitioner.FirstName} lastName={this.props.practitioner.LastName} specialization={this.props.practitioner.Specialization} />
           </div>
-          <div style={style.times}>
-            <ModalButton time={timeMinusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
-            <ModalButton time={time} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
-            <ModalButton time={timePlusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
+          <div style={style.sticky}>
+            <div style={style.times}>
+              <ModalButton time={timeMinusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
+              <ModalButton time={time} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
+              <ModalButton time={timePlusOne} date={date} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
+              <ModalButton time={timePlusOne} date={date} text={text} practitioner={this.props.practitioner.FirstName + ' ' + this.props.practitioner.LastName}/>
+            </div>
           </div>
       </div>
     );

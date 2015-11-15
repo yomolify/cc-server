@@ -40,16 +40,16 @@ export default class Home extends Component {
             <SearchBarComponent/>
           </div>
           <div style={{width: '40%', position: 'relative', float: 'left',
-            '@media (max-width:1150px)': {
-              width: '100%'
-            }
+              '@media (max-width:1150px)': {
+                width: '100%'
+              }
             }}>
             <AppointmentViewer date={pickedDate} time={pickedTime} practitioner={pickedPractitioner}/>
           </div>
           <div style={{width: '60%', border: '2px solid #999', borderBottom: '0px', position: 'relative', float: 'right', pointerEvents: 'none',
-            '@media (max-width:1150px)': {
-              width: '100%'
-            }}}>
+              '@media (max-width:1150px)': {
+                width: '100%'
+              }}}>
             <GeolocationService/>
           </div>
           </div>

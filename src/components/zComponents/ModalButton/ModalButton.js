@@ -8,26 +8,18 @@ import Radium from 'radium';
 
 const customStyles = {
   overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    transitionDuration: '.5s',
-    border: '5px solid #ccc'
+    backgroundColor: 'rgba(255, 255, 255, 0.01)',
+    position: 'absolute'
   },
   content: {
-    fontFamily: 'Helvetica Neue',
-    position: 'absolute',
-    left: '400px',
-    right: '400px',
-    bottom: '200px',
-    border: '5px solid #ccc',
+    width: '40%',
+    left: '40.1%',
+    marginTop: '24.8%',
+    border: '1px solid #ccc',
+    position: 'relative',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
-    borderRadius: '10px',
-    outline: 'none',
-    transitionDuration: '.5s',
+    borderRadius: '1px',
     padding: '20px'
   }
 };
@@ -38,6 +30,7 @@ export default class ModalButton extends Component {
     time: PropTypes.string,
     date: PropTypes.string,
     practitioner: PropTypes.string,
+    text: PropTypes.string
   }
   state = {
     modalIsOpen: false
@@ -54,32 +47,69 @@ export default class ModalButton extends Component {
   }
   render() {
     const baseStyles = {
-      borderRadius: 4,
-      background: '#eee',
+      fontWeight: '600',
+      display: 'inline-block',
+      overflow: 'hidden',
+      padding: '0.2em',
+      marginTop: '0.3em',
+      margin: '0.2em',
+      width: '7em',
+      background: 'none',
+      border: '2px solid #aaa',
+      borderRadius: 2,
+      boxShadow: '1px 1px 3px #aaa',
+      color: '#777',
+
       transitionDuration: '0.3s',
       ':hover': {
         background: '#ccc'
+      },
+      ':focus': {
+        outline: '0'
+      }
+    };
+    const moreTimes = {
+      fontWeight: '600',
+      display: 'inline-block',
+      overflow: 'hidden',
+      padding: '0.2em',
+      margin: '0.2em',
+      marginBottom: '0.4em',
+      height: '2.8em',
+      width: '7em',
+      background: 'none',
+      border: '2px solid #aaa',
+      borderRadius: 2,
+      boxShadow: '1px 1px 3px #aaa',
+      color: '#777',
+      transitionDuration: '0.3s',
+      ':hover': {
+        background: '#ccc'
+      },
+      ':focus': {
+        outline: '0'
       }
     };
     const {
       modalIsOpen
     } = this.state;
     const {
-      date, time, practitioner
+      date, time, practitioner, text
     } = this.props;
     let correctedTime;
     if ((Number(time.slice(0, 2) > 12))) {
       correctedTime = (Number(time.slice(0, 2))) - 12;
       correctedTime = correctedTime.toString() + ':00';
       if ((Number(time.slice(0, 2) > 10))) {
-        correctedTime = '0' + correctedTime;
+        correctedTime = '' + correctedTime;
       }
     } else {
       correctedTime = time;
     }
+    console.log(text);
     return (
       <div>
-        <button style={baseStyles} onClick={::this.openModal}>{correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</button>
+        <button style={(text === 'More Times' ? moreTimes : baseStyles)} onClick={::this.openModal}>{(text === 'More Times' ? text : (correctedTime + (Number(time.slice(0, 2)) < 12 ? ' AM' : ' PM')))}</button>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={::this.closeModal}

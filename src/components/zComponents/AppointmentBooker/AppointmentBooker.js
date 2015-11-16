@@ -36,7 +36,7 @@ export default class AppointmentBooker extends Component {
   render() {
     const {show} = this.state;
     return (
-        <div style={{width: '100%', height: '100X'}}>
+        <div style={{width: '100%'}}>
         <AppointmentForm onSubmit={::this.handleSubmit}/>
         {show && 'Appointment has been booked!'}
       </div>

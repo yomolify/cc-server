@@ -8,19 +8,22 @@ import Radium from 'radium';
 
 const customStyles = {
   overlay: {
+    height: '138%',
     backgroundColor: 'rgba(255, 255, 255, 0.01)',
     position: 'absolute'
   },
   content: {
+    borderRight: '0px',
     width: '40%',
-    left: '40.1%',
-    marginTop: '24.8%',
-    border: '1px solid #ccc',
+    left: '41.1%',
+    marginTop: '25.8%',
     position: 'relative',
+    boxShadow: '3px 5px 30px 0px rgba(42, 50, 50, 0.4)',
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '1px',
-    padding: '20px'
+    padding: '0',
+    transitionDuration: '0.5s'
   }
 };
 @Radium
@@ -59,7 +62,6 @@ export default class ModalButton extends Component {
       borderRadius: 2,
       boxShadow: '1px 1px 3px #aaa',
       color: '#777',
-
       transitionDuration: '0.3s',
       ':hover': {
         background: '#ccc'
@@ -90,6 +92,18 @@ export default class ModalButton extends Component {
         outline: '0'
       }
     };
+    const headerDiv = {
+      borderBottom: '4px solid #ddd',
+      padding: '12px',
+      fontFamily: 'Helvetica'
+    };
+    const headerStyle = {
+      margin: '1em',
+      textAlign: 'center'
+    };
+    const image = {
+      width: '100%'
+    };
     const {
       modalIsOpen
     } = this.state;
@@ -106,7 +120,8 @@ export default class ModalButton extends Component {
     } else {
       correctedTime = time;
     }
-    console.log(text);
+    const doc = require('./doc.png');
+    console.log(doc);
     return (
       <div>
         <button style={(text === 'More Times' ? moreTimes : baseStyles)} onClick={::this.openModal}>{(text === 'More Times' ? text : (correctedTime + (Number(time.slice(0, 2)) < 12 ? ' AM' : ' PM')))}</button>
@@ -114,7 +129,11 @@ export default class ModalButton extends Component {
           isOpen={modalIsOpen}
           onRequestClose={::this.closeModal}
           style={customStyles}>
-          <h3 style={{fontFamily: 'Helvetica Neue'}}>Book Appointment with Dr {practitioner} for {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
+          <div style={headerDiv}>
+            <h2 style={headerStyle}>Book Appointment with Dr {practitioner}</h2>
+            <h3 style={headerStyle}>Today - {correctedTime} {(Number(time.slice(0, 2)) < 12 ? 'AM' : 'PM')}</h3>
+          </div>
+          <img style={image} src={doc}/>
           <div style={{width: '100%', height: '100X'}}>
           <AppointmentBooker style={{fontFamily: 'Helvetica Neue'}} practitioner={practitioner} time={time} date={date}/>
           </div>

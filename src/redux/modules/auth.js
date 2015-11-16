@@ -46,7 +46,8 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
-        practices: action.result
+        practices: action.result.Practice,
+        selectedTime: action.result.Time
       };
     case SEARCH_FAIL:
       return {
@@ -105,7 +106,7 @@ export function load() {
     promise: (client) => client.get('/practices')
   };
 }
-export function search(name, neighborhood) {
+export function search(name, neighborhood, time) {
   // console.log("name", name);
   // console.log("neighborhood", neighborhood);
   return {
@@ -113,7 +114,8 @@ export function search(name, neighborhood) {
     promise: (client) => client.get('/search', {
       params: {
         name: name,
-        neighborhood: neighborhood
+        neighborhood: neighborhood,
+        time: time
       }
     })
   };

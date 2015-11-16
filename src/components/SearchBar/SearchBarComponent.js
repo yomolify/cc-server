@@ -40,38 +40,39 @@ export default class SearchBarComponent extends Component {
   }
 
   onChange(datetime) {
-    const selected = moment(datetime);
-    const hour = selected.hour();
-    const hourString = hour.toString() + ':00';
+    console.log('datetime', datetime);
+    // const selected = moment(datetime);
+    // const hour = selected.hour();
+    // const hourString = hour.toString() + ':00';
     this.setState({
-      pickedTime: hourString
+      pickedTime: datetime
     });
-    this.setState({
-      datetime: datetime
-    });
+    // this.setState({
+    //   datetime: datetime
+    // });
 
-    const date = selected.date();
-    let dateString = date.toString();
-    if (date < 10) {
-      dateString = '0' + date.toString();
-    } else {
-      dateString = date.toString();
-    }
+    // const date = selected.date();
+    // let dateString = date.toString();
+    // if (date < 10) {
+    //   dateString = '0' + date.toString();
+    // } else {
+    //   dateString = date.toString();
+    // }
 
-    const month = selected.month();
-    let monthString = month.toString();
-    if (month < 10) {
-      monthString = '0' + month.toString();
-    } else {
-      monthString = month.toString();
-    }
+    // const month = selected.month();
+    // let monthString = month.toString();
+    // // if (month < 10) {
+    // //   monthString = '0' + month.toString();
+    // // } else {
+    // //   monthString = month.toString();
+    // // }
 
-    const year = selected.year();
-    const yearString = year.toString();
-    const wholeDate = yearString + '-' + monthString + '-' + dateString;
-    this.setState({
-      pickedDate: wholeDate
-    });
+    // const year = selected.year();
+    // const yearString = year.toString();
+    // const wholeDate = yearString + '-' + monthString + '-' + dateString;
+    // this.setState({
+    //   pickedDate: wholeDate
+    // });
   }
 
   practiceChange(val) {
@@ -107,7 +108,7 @@ export default class SearchBarComponent extends Component {
     //   }
     // }
     // console.log("statePractices", this.state.statePractices);
-    this.props.search(this.state.pickedPractice, this.state.pickedNeighborhood);
+    this.props.search(this.state.pickedPractice, this.state.pickedNeighborhood, this.state.datetime);
   }
 
   static fetchData(store) {
